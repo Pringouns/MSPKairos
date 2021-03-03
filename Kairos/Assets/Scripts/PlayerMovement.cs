@@ -28,6 +28,11 @@ public class PlayerMovement : MonoBehaviour
        {
           crouch = false;
        }
+
+       if (controller.GetLifePoints() <= 0)
+       {
+          controller.PlayerRespawn();
+       }
     }
 
     void FixedUpdate() 

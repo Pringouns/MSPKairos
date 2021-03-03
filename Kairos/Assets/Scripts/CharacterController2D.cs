@@ -3,6 +3,7 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
+   [SerializeField] private Vector3 spawn = new Vector3(-6, -3, 0);
 	[SerializeField] private float m_JumpForce = 400f;							// Amount of force added when the player jumps.
    [SerializeField] private int m_LifePoints = 100;         // lp - default 100 
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// Amount of maxSpeed applied to crouching movement. 1 = 100%
@@ -145,12 +146,21 @@ public class CharacterController2D : MonoBehaviour
 		transform.localScale = theScale;
 	}
 
-   private void GetDamage(int damage) 
+   private void GetDamage(int damage) // Remove Damage from actual LifePoints
    {
       m_LifePoints = m_LifePoints - damage;
    }
-   private void GetHealth(int health) 
+   private void GetHealth(int health) // Added the Health to actual LifePoints
    {
       m_LifePoints = m_LifePoints + health;
+   }
+   public int GetLifePoints() // return the actual LifePoints of the Player
+   {
+      return m_LifePoints;
+   }
+   public void PlayerRespawn() // Teleport the Player to Spawn Point and Reset the LifePoints
+   {
+         transform.position = spawn;
+         m_LifePoints = 100;
    }
 }
