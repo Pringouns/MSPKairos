@@ -151,9 +151,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 62
-        y: 1781
-        width: 220
-        height: 224
+        y: 1694
+        width: 222
+        height: 311
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,9 +172,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 333
-        y: 1781
-        width: 217
-        height: 219
+        y: 1691
+        width: 220
+        height: 309
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -192,10 +192,10 @@ TextureImporter:
       name: MC Idle_2
       rect:
         serializedVersion: 2
-        x: 624
-        y: 1786
-        width: 228
-        height: 217
+        x: 629
+        y: 1699
+        width: 205
+        height: 304
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -213,10 +213,10 @@ TextureImporter:
       name: MC Idle_3
       rect:
         serializedVersion: 2
-        x: 924
-        y: 1786
-        width: 211
-        height: 219
+        x: 919
+        y: 1702
+        width: 215
+        height: 303
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -234,10 +234,10 @@ TextureImporter:
       name: MC Idle_4
       rect:
         serializedVersion: 2
-        x: 1211
-        y: 1800
-        width: 217
-        height: 214
+        x: 1210
+        y: 1712
+        width: 213
+        height: 302
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -256,9 +256,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 27
-        y: 1389
-        width: 220
-        height: 211
+        y: 1301
+        width: 211
+        height: 299
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -277,9 +277,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 347
-        y: 1399
-        width: 213
-        height: 204
+        y: 1306
+        width: 210
+        height: 297
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -298,9 +298,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 673
-        y: 1389
-        width: 204
-        height: 207
+        y: 1302
+        width: 203
+        height: 294
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -319,9 +319,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 989
-        y: 1379
-        width: 216
-        height: 220
+        y: 1307
+        width: 202
+        height: 292
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -340,9 +340,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 59
-        y: 972
-        width: 203
-        height: 211
+        y: 892
+        width: 202
+        height: 291
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -361,9 +361,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 375
-        y: 972
-        width: 214
-        height: 214
+        y: 898
+        width: 202
+        height: 288
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -382,9 +382,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 656
-        y: 947
-        width: 186
-        height: 204
+        y: 860
+        width: 202
+        height: 291
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -403,9 +403,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 986
-        y: 957
-        width: 199
-        height: 213
+        y: 878
+        width: 193
+        height: 292
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -424,9 +424,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 50
-        y: 516
-        width: 202
-        height: 211
+        y: 433
+        width: 203
+        height: 294
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -445,9 +445,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 385
-        y: 521
-        width: 214
-        height: 208
+        y: 431
+        width: 209
+        height: 298
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -465,10 +465,10 @@ TextureImporter:
       name: MC Idle_28
       rect:
         serializedVersion: 2
-        x: 694
-        y: 526
-        width: 213
-        height: 211
+        x: 699
+        y: 438
+        width: 212
+        height: 299
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -487,9 +487,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1066
-        y: 536
+        y: 440
         width: 213
-        height: 206
+        height: 302
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -508,9 +508,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 199
-        y: 164
-        width: 212
-        height: 202
+        y: 62
+        width: 216
+        height: 304
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -529,9 +529,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 577
-        y: 139
-        width: 201
-        height: 214
+        y: 49
+        width: 216
+        height: 304
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -549,10 +549,10 @@ TextureImporter:
       name: MC Idle_36
       rect:
         serializedVersion: 2
-        x: 957
-        y: 149
-        width: 198
-        height: 213
+        x: 953
+        y: 54
+        width: 220
+        height: 308
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
