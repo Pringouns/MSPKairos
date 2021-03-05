@@ -14,14 +14,11 @@ public class CannonballScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    void OnCollisionEnter2D(Collision2D Col) 
+    void OnTriggerEnter2D(Collider2D Col)
     {
-        Destroy(this.gameObject);
-
-       //if collision = player??
-        ctrl_Player.GetDamage();
+       Destroy(this.gameObject);
     }
 }

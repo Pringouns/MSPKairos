@@ -154,15 +154,15 @@ CircleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1495137815035304940}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.012262486, y: 0.21292385}
+  m_Offset: {x: 0.012262486, y: 0.54410213}
   serializedVersion: 2
-  m_Radius: 0.6678161
+  m_Radius: 0.9989944
 --- !u!68 &1495137815035304938
 EdgeCollider2D:
   m_ObjectHideFlags: 0
@@ -221,6 +221,7 @@ MonoBehaviour:
   spawn: {x: -6, y: -3, z: 0}
   m_JumpForce: 400
   m_LifePoints: 100
+  m_damage: 5
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
   m_AirControl: 1

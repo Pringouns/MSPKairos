@@ -169,4 +169,10 @@ public class CharacterController2D : MonoBehaviour
          transform.position = spawn; // transform position of player to spawn
          m_LifePoints = 100;  // set LP up to 100
    }
+
+   void OnTriggerEnter2D(Collider2D Col)
+   {
+      if (Col.CompareTag("StandardAttack"))
+         GetDamage();
+   }
 }
