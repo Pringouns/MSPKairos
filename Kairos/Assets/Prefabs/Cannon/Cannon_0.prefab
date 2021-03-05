@@ -127,9 +127,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Range: 5
-  Cannon: {fileID: 8193311038567105897}
   Target: {fileID: 1495137815035304937, guid: 92ebbf3b463d78141aec0fe04be3d215, type: 3}
-  Cannonball: {fileID: 8216278603655122685, guid: 10a7a8a42768d324ab47d5be6c02b40f,
+  Cannonball: {fileID: 8216278603655122685, guid: aca4313b0e52840479d72009698cbb45,
     type: 3}
   FireRate: 5
   Force: 99.7

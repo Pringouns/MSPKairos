@@ -6,8 +6,7 @@ public class cannonScript : MonoBehaviour
 {
 
     public float Range;
-    public GameObject Cannon;
-    public Transform Target;
+    private GameObject player;
     bool Detected = false;
     public GameObject Cannonball;
     public float FireRate;
@@ -19,13 +18,13 @@ public class cannonScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        Vector2 targetPos = Target.position;
+        player = GameObject.FindWithTag("Player");
+        Vector2 targetPos = player.transform.position;
 
         Direction = targetPos - (Vector2)transform.position;
 
@@ -54,7 +53,7 @@ public class cannonScript : MonoBehaviour
 
         if (Detected) 
         {
-            Cannon.transform.right = Direction * -1;
+            gameObject.transform.right = Direction * -1;
             if (Time.time > nextTimeToFire) 
             {
                 nextTimeToFire = Time.time + 1 / FireRate;
