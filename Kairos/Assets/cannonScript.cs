@@ -6,7 +6,7 @@ public class cannonScript : MonoBehaviour
 {
 
     public float Range;
-    //public GameObject Cannon;
+    public GameObject Cannon;
     public Transform Target;
     bool Detected = false;
     public GameObject Cannonball;
@@ -54,12 +54,14 @@ public class cannonScript : MonoBehaviour
 
         if (Detected) 
         {
- //           Cannon.transform.up = Direction;
+            Cannon.transform.right = Direction * -1;
             if (Time.time > nextTimeToFire) 
             {
                 nextTimeToFire = Time.time + 1 / FireRate;
                 shoot();
             }
+
+            Detected = false;
         }
 
     }
