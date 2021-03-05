@@ -7,6 +7,7 @@ public class CharacterController2D : MonoBehaviour
    [SerializeField] private Vector3 spawn = new Vector3(-6, -3, 0);           // Spawn Point when LP <= 0
 	[SerializeField] private float m_JumpForce = 400f;							      // Jump strength of the player
    [SerializeField] private int m_LifePoints = 100;                           // lp - default 100 
+   [SerializeField] private int m_damage     = 5;
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// maxSpeed at Crouch movement, 1=100%
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = false;							   // for movement(left,right) while jumping
@@ -151,11 +152,11 @@ public class CharacterController2D : MonoBehaviour
 		transform.localScale = theScale;
 	}
 
-   private void GetDamage(int damage) // Remove Damage from actual LifePoints
+   public void GetDamage() // Remove Damage from actual LifePoints
    {
-      m_LifePoints = m_LifePoints - damage;
+      m_LifePoints = m_LifePoints - m_damage;
    }
-   private void GetHealth(int health) // Added the Health to actual LifePoints
+   public void GetHealth(int health) // Added the Health to actual LifePoints
    {
       m_LifePoints = m_LifePoints + health;  
    }
