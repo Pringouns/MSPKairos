@@ -20,7 +20,7 @@ public class CharacterController2D : MonoBehaviour
 	private bool   m_Grounded;                         // Whether or not the player is grounded.
 	const float    k_CeilingRadius = .2f;              // Radius of the overlap circle to determine if the player can stand up
 	private        Rigidbody2D m_Rigidbody2D;
-   private        Animator m_Animator;
+   	private        Animator m_Animator;
 	private bool   m_FacingRight = true;               // For determining which way the player is currently facing.
 	private        Vector3 m_Velocity = Vector3.zero;
 
@@ -174,5 +174,21 @@ public class CharacterController2D : MonoBehaviour
    {
       if (Col.CompareTag("StandardAttack"))
          GetDamage();
+   }
+   public void TakeDamage(int damage)
+   {
+	    m_LifePoints -= damage;
+	   if ( m_LifePoints <= 0)	{
+		   Debug.Log ("Player Dead");
+
+		GetComponent<BoxCollider2D>().enabled = false;
+		GetComponent<CircleCollider2D>().enabled = false;
+		GetComponent<EdgeCollider2D>().enabled = false;
+		GetComponent<CharacterController2D>().enabled = false;
+        GetComponent<PlayerMovement>().enabled = false;
+		GetComponent<Animator>().enabled = false;
+		GetComponent<PlayerCombat>().enabled = false;
+		this.enabled = false;   
+	   }
    }
 }
