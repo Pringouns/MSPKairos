@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Enemy : MonoBehaviour
+public class ShootingEnemy : MonoBehaviour
 {
     public float speed;
     public float stoppingDistance;

@@ -53,10 +53,12 @@ public class Projectile : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player"))
+        if (other.transform.tag == "Player")
         {
+            other.GetComponent<CharacterController2D>().TakeDamage(damage);
             Destroy(this.gameObject);
         }
+       
     }
     void DestroyProjectile()
     {
