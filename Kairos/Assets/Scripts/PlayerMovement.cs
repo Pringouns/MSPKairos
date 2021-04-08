@@ -9,6 +9,8 @@ public class PlayerMovement : MonoBehaviour
    float horizontalMove    = 0f;
    bool jump   = false;
    bool crouch = false;
+   bool melee  = false;
+   bool fire   = false;
 
     // Update is called once per frame
     void Update()
@@ -29,6 +31,18 @@ public class PlayerMovement : MonoBehaviour
           crouch = false;
        }
 
+       if (Input.GetButtonDown("melee")) // "c"
+       {
+          melee = true;
+       }
+       else if (Input.GetButtonUp("melee")) //"C" los lassen
+       {
+          melee = false;
+       }
+       if (Input.GetButtonDown("Fire")) // "v"
+       {
+          fire = true;
+       }
        if (controller.GetLifePoints() <= 0)
        {
           controller.PlayerRespawn();
@@ -38,6 +52,9 @@ public class PlayerMovement : MonoBehaviour
     void FixedUpdate() 
     {
        controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
+       controller.MeleeAttack(melee);
+       controller.FireAttack(fire);
+       fire = false;
        jump = false;
     }
 }

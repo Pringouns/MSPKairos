@@ -7,6 +7,9 @@ public class CharacterController2D : MonoBehaviour
    [SerializeField] private Vector3 spawn = new Vector3(-6, -3, 0);           // Spawn Point when LP <= 0
 	[SerializeField] private float m_JumpForce = 400f;							      // Jump strength of the player
    [SerializeField] private int m_LifePoints = 100;                           // lp - default 100 
+   [SerializeField] private int m_damage     = 5;
+   [SerializeField] public int m_MeleeDamage = 50;
+   [SerializeField] public int m_maxLP = 100;
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// maxSpeed at Crouch movement, 1=100%
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = false;							   // for movement(left,right) while jumping
@@ -22,6 +25,18 @@ public class CharacterController2D : MonoBehaviour
    private        Animator m_Animator;
 	private bool   m_FacingRight = true;               // For determining which way the player is currently facing.
 	private        Vector3 m_Velocity = Vector3.zero;
+
+   //Attack
+   public bool melee = false; // "C" Nahkampf
+   public bool fire = false; // "V" Fernkampf
+   // fire
+   public int bulletDmg = 50;
+   public int bulletLPremove = 20;
+   // melee
+   public int attackDamage = 50;
+   public float attackRange = 0.5f;
+   public float attackRate = 2f;
+   public float nextAttackTime = 0f;
 
 	[Header("Events")]
 	[Space]
@@ -145,27 +160,56 @@ public class CharacterController2D : MonoBehaviour
 		// Switch the way the player is labelled as facing.
 		m_FacingRight = !m_FacingRight;
 
-		// Multiply the player's x local scale by -1.
-		Vector3 theScale = transform.localScale;
-		theScale.x *= -1;
-		transform.localScale = theScale;
-	}
+      //// Multiply the player's x local scale by -1.
+      //Vector3 theScale = transform.localScale;
+      //theScale.x *= -1;
+      //transform.localScale = theScale;
 
-   private void GetDamage(int damage) // Remove Damage from actual LifePoints
+      transform.Rotate(0f, 180f, 0f);
+	}
+   public void GetDamage(int damage) // Remove Damage from actual LifePoints
    {
       m_LifePoints = m_LifePoints - damage;
    }
-   private void GetHealth(int health) // Added the Health to actual LifePoints
+   public void GetHealth(int health) // Added the Health to actual LifePoints
    {
-      m_LifePoints = m_LifePoints + health;  
+      if(this.m_LifePoints <= m_maxLP)
+      {
+         this.m_LifePoints += health;
+         if (this.m_LifePoints > m_maxLP) 
+         {
+            this.m_LifePoints = m_maxLP;
+         }
+      }
    }
    public int GetLifePoints() // return the actual LifePoints of the Player
    {
-      return m_LifePoints;       // actual lifepoints
+      return this.m_LifePoints;       // actual lifepoints
    }
    public void PlayerRespawn() // Teleport the Player to Spawn Point and Reset the LifePoints
    {
          transform.position = spawn; // transform position of player to spawn
          m_LifePoints = 100;  // set LP up to 100
+   }
+   public void MeleeAttack(bool melee) // Player Meele("c")
+   {
+      this.melee = melee;
+   }
+   public bool getMelee() 
+   {
+      return this.melee;
+   }
+   public void FireAttack(bool fire) 
+   {
+      this.fire = fire;
+   }
+   public bool getFireAttack() 
+   {
+      return this.fire;
+   }
+   void OnTriggerEnter2D(Collider2D Col)
+   {
+      if (Col.CompareTag("StandardAttack"))
+         GetDamage(m_damage);
    }
 }
