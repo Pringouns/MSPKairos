@@ -1,0 +1,368 @@
+fileFormatVersion: 2
+guid: 4c5fd4d9d04dc7d4a97ea9559ccc45c7
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -7918885516657386416
+    second: MSP - Boss Healthbar_0
+  - first:
+      213: 518087552134137567
+    second: MSP - Boss Healthbar_1
+  - first:
+      213: -2245164025945166294
+    second: MSP - Boss Healthbar_2
+  - first:
+      213: -5916916359212523134
+    second: MSP - Boss Healthbar_3
+  - first:
+      213: 1493787094162263751
+    second: MSP - Boss Healthbar_4
+  - first:
+      213: 9006611098558473117
+    second: MSP - Boss Healthbar_5
+  - first:
+      213: 5336419256407257080
+    second: MSP - Boss Healthbar_6
+  - first:
+      213: 7052022706487879700
+    second: MSP - Boss Healthbar_7
+  - first:
+      213: -8683431210356546193
+    second: MSP - Boss Healthbar_8
+  - first:
+      213: -612451190061787180
+    second: MSP - Boss Healthbar_9
+  - first:
+      213: 6980564112029055979
+    second: MSP - Boss Healthbar_10
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MSP - Boss Healthbar_0
+      rect:
+        serializedVersion: 2
+        x: 732
+        y: 289
+        width: 454
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05c96a224977a1290800000000000000
+      internalID: -7918885516657386416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Healthbar_1
+      rect:
+        serializedVersion: 2
+        x: 1397
+        y: 289
+        width: 457
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd6c18b32ed903700800000000000000
+      internalID: 518087552134137567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Healthbar_2
+      rect:
+        serializedVersion: 2
+        x: 1044
+        y: 565
+        width: 455
+        height: 47
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a2e6d0bb63397d0e0800000000000000
+      internalID: -2245164025945166294
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Healthbar_3
+      rect:
+        serializedVersion: 2
+        x: 402
+        y: 577
+        width: 453
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 281a073abe3e2eda0800000000000000
+      internalID: -5916916359212523134
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Healthbar_4
+      rect:
+        serializedVersion: 2
+        x: 94
+        y: 870
+        width: 453
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ceca9d927ffab410800000000000000
+      internalID: 1493787094162263751
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Healthbar_5
+      rect:
+        serializedVersion: 2
+        x: 726
+        y: 864
+        width: 462
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d932ba73319edfc70800000000000000
+      internalID: 9006611098558473117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Healthbar_6
+      rect:
+        serializedVersion: 2
+        x: 1324
+        y: 868
+        width: 457
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8ff65b64a05ce0a40800000000000000
+      internalID: 5336419256407257080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Healthbar_7
+      rect:
+        serializedVersion: 2
+        x: 1683
+        y: 565
+        width: 455
+        height: 45
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 418e230d941ddd160800000000000000
+      internalID: 7052022706487879700
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Healthbar_8
+      rect:
+        serializedVersion: 2
+        x: 1975
+        y: 864
+        width: 454
+        height: 42
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f65682b22514e7780800000000000000
+      internalID: -8683431210356546193
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Healthbar_9
+      rect:
+        serializedVersion: 2
+        x: 2307
+        y: 557
+        width: 455
+        height: 48
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d71a1633e22087f0800000000000000
+      internalID: -612451190061787180
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Healthbar_10
+      rect:
+        serializedVersion: 2
+        x: 2582
+        y: 860
+        width: 471
+        height: 44
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bebf4554312ffd060800000000000000
+      internalID: 6980564112029055979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
