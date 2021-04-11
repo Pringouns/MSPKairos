@@ -7,6 +7,7 @@ public class cannonScript : MonoBehaviour
 
     public float Range;
     private GameObject player;
+    [SerializeField]public int m_CannonLP = 500;        
     bool Detected = false;
     public GameObject Cannonball;
     public float FireRate;
@@ -63,6 +64,10 @@ public class cannonScript : MonoBehaviour
             Detected = false;
         }
 
+        if (m_CannonLP <= 0) 
+        {
+           DestroyCannon();
+        }
     }
 
     void shoot() 
@@ -75,5 +80,10 @@ public class cannonScript : MonoBehaviour
     void OnDrawGizmosSelected() 
     {
         Gizmos.DrawWireSphere(transform.position, Range);
+    }
+
+    public void DestroyCannon() 
+    {
+       Destroy(this.gameObject);
     }
 }
