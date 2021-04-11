@@ -197,11 +197,6 @@ public class CharacterController2D : MonoBehaviour
 		m_Rigidbody2D.velocity = Vector2.zero;
     }
 
-    void OnTriggerEnter2D(Collider2D Col)
-   {
-      if (Col.CompareTag("StandardAttack"))
-         GetDamage();
-   }
    public void TakeDamage(int damage)
    {
 	    m_LifePoints -= damage;
