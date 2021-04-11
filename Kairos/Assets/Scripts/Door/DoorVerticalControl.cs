@@ -21,14 +21,12 @@ public class DoorVerticalControl : MonoBehaviour, DoorControl
     {
         if (isOpen)
         {
-            Debug.Log("Close");
             isOpen = false;
             topDoor.moveDown();
             bottomDoor.moveUp();
         }
         else
         {
-            Debug.Log("Open");
             isOpen = true;
             topDoor.moveUp();
             bottomDoor.moveDown();

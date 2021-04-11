@@ -47,4 +47,4 @@ MonoBehaviour:
   - {fileID: 8286396515453176000, guid: a24ddbf3e06e45d4f979bbc97facd5be, type: 3}
   specialObjects:
   - {fileID: 5179548676161664956, guid: 1323f68787afaa444b45497ca037e3d3, type: 3}
-  maxObjects: 3
+  maxObjects: 1

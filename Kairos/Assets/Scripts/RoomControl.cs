@@ -5,19 +5,47 @@ using UnityEngine;
 public class RoomControl : MonoBehaviour
 {
     public GameObject[] doors;
-    private bool wasActive = false;
+    public GameObject[] mobSpawns;
+
     private CameraControl cam;
+
+    private bool isCleared = false;
+    private bool hasSpawned = false;
 
     private void Start()
     {
         cam = Camera.main.GetComponent<CameraControl>();
     }
 
+    private void Update()
+    {
+        if(hasSpawned == true && isCleared == false)
+        {
+            GameObject[] mobs = GameObject.FindGameObjectsWithTag("Enemy");
+            if(mobs.Length == 0)
+            {
+                isCleared = true;
+                activateDoors();
+            }
+        }
+        
+    }
+
     public void onPlayerEnter()
     {
         cam.moveCamera(this.transform.position);
         activateDoors();
-        StartCoroutine(waiter());
+
+        if(hasSpawned == false)
+        {
+            foreach(GameObject mobSpawn in mobSpawns)
+            {
+                SpawnpointControl spawnController = mobSpawn.GetComponent<SpawnpointControl>();
+                spawnController.spawn();
+            }
+
+            hasSpawned = true;
+        }
     }
 
     private void activateDoors()
@@ -27,11 +55,5 @@ public class RoomControl : MonoBehaviour
             DoorControl doorController = door.GetComponent<DoorControl>();
             doorController.activateDoor();
         }
-    }
-
-    IEnumerator waiter()
-    {
-        yield return new WaitForSeconds(10);
-        activateDoors();
     }
 }
