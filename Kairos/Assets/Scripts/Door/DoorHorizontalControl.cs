@@ -21,14 +21,12 @@ public class DoorHorizontalControl : MonoBehaviour, DoorControl
     {
         if (isOpen)
         {
-            Debug.Log("Close");
             isOpen = false;
             leftDoor.moveRight();
             rightDoor.moveLeft();
         }
         else
         {
-            Debug.Log("Open");
             isOpen = true;
             leftDoor.moveLeft();
             rightDoor.moveRight();

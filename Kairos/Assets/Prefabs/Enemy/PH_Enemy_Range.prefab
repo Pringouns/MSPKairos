@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3124481378354945413}
   - component: {fileID: 3124481378354945415}
   - component: {fileID: 5391183828738710343}
+  - component: {fileID: 8257557820615987825}
   m_Layer: 0
   m_Name: PH_Enemy_Range
   m_TagString: Enemy
@@ -119,9 +120,25 @@ MonoBehaviour:
   speed: 0
   stoppingDistance: 0
   retreatDistance: 0
-  startTimeBtwShots: 0
+  startTimeBtwShots: 1
   projectile: {fileID: 6878134845839551781, guid: 894b9ed65adce4a68a74a84376489fff,
     type: 3}
-  currentHealth: 0
+  currentHealth: 10
   maxHealth: 100
   player: {fileID: 0}
+--- !u!58 &8257557820615987825
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3124481378354945409}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.024327017, y: -0.023182452}
+  serializedVersion: 2
+  m_Radius: 0.94772196

@@ -17,18 +17,17 @@ public class RoomControl : MonoBehaviour
         cam = Camera.main.GetComponent<CameraControl>();
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        if(hasSpawned == true && isCleared == false)
+        if (hasSpawned == true && isCleared == false)
         {
             GameObject[] mobs = GameObject.FindGameObjectsWithTag("Enemy");
-            if(mobs.Length == 0)
+            if (mobs.Length == 0)
             {
                 isCleared = true;
                 activateDoors();
             }
         }
-        
     }
 
     public void onPlayerEnter()
