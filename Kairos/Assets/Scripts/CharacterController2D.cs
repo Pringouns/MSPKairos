@@ -170,7 +170,12 @@ public class CharacterController2D : MonoBehaviour
          m_LifePoints = 100;  // set LP up to 100
    }
 
-   void OnTriggerEnter2D(Collider2D Col)
+    public void Stop()
+    {
+		m_Rigidbody2D.velocity = Vector2.zero;
+    }
+
+    void OnTriggerEnter2D(Collider2D Col)
    {
       if (Col.CompareTag("StandardAttack"))
          GetDamage();
