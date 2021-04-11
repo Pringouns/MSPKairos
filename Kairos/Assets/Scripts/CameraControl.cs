@@ -6,7 +6,8 @@ public class CameraControl : MonoBehaviour
 {
     public void moveCamera(Vector3 newPos)
     {
-        transform.position += newPos;
+        newPos.z = -10;
+        transform.position = newPos;
     }
     public void pause()
     {

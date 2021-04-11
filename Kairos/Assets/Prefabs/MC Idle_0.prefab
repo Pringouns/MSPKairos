@@ -219,7 +219,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawn: {x: -6, y: -3, z: 0}
-  m_JumpForce: 400
+  m_JumpForce: 800
   m_LifePoints: 100
   m_damage: 5
   m_CrouchSpeed: 0.36

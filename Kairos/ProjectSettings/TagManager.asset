@@ -6,6 +6,11 @@ TagManager:
   tags:
   - Ground
   - StandardAttack
+  - Wall
+  - Ceiling
+  - Platform
+  - Door
+  - Enemy
   layers:
   - Default
   - TransparentFX

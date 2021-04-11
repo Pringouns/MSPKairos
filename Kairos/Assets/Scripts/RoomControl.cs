@@ -6,6 +6,19 @@ public class RoomControl : MonoBehaviour
 {
     public GameObject[] doors;
     private bool wasActive = false;
+    private CameraControl cam;
+
+    private void Start()
+    {
+        cam = Camera.main.GetComponent<CameraControl>();
+    }
+
+    public void onPlayerEnter()
+    {
+        cam.moveCamera(this.transform.position);
+        activateDoors();
+        StartCoroutine(waiter());
+    }
 
     private void activateDoors()
     {
@@ -13,16 +26,6 @@ public class RoomControl : MonoBehaviour
         {
             DoorControl doorController = door.GetComponent<DoorControl>();
             doorController.activateDoor();
-        }
-    }
-    private void OnTriggerEnter2D(Collider2D trigger)
-    {
-        if (trigger.CompareTag("Player") && trigger.GetType() == typeof(UnityEngine.BoxCollider2D) && wasActive == false)
-        {
-            Debug.Log("Activated");
-            wasActive = true;
-            activateDoors();
-            StartCoroutine(waiter());
         }
     }
 

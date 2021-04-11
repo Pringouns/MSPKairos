@@ -4,17 +4,17 @@ using UnityEngine;
 
 public class DoorHorizontalControl : MonoBehaviour, DoorControl
 {
-    public GameObject top;
-    public GameObject bottom;
+    public GameObject left;
+    public GameObject right;
     public bool isOpen = true;
 
-    private DoorPartControl topDoor;
-    private DoorPartControl bottomDoor;
+    private DoorPartControl leftDoor;
+    private DoorPartControl rightDoor;
 
     private void Start()
     {
-        topDoor = top.GetComponent<DoorPartControl>();
-        bottomDoor = bottom.GetComponent<DoorPartControl>();
+        leftDoor = left.GetComponent<DoorPartControl>();
+        rightDoor = right.GetComponent<DoorPartControl>();
     }
 
     public void activateDoor()
@@ -23,15 +23,15 @@ public class DoorHorizontalControl : MonoBehaviour, DoorControl
         {
             Debug.Log("Close");
             isOpen = false;
-            topDoor.moveDown();
-            bottomDoor.moveUp();
+            leftDoor.moveRight();
+            rightDoor.moveLeft();
         }
         else
         {
             Debug.Log("Open");
             isOpen = true;
-            topDoor.moveUp();
-            bottomDoor.moveDown();
+            leftDoor.moveLeft();
+            rightDoor.moveRight();
         }
     }
 }

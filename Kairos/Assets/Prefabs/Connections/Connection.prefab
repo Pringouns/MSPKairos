@@ -30,7 +30,6 @@ Transform:
   - {fileID: 190292040146842026}
   - {fileID: 4679685201979569174}
   - {fileID: 4150972776821296423}
-  - {fileID: 1265930629277087913}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -49,7 +48,7 @@ PrefabInstance:
     - target: {fileID: 3400514668385839822, guid: a79beff614c1d1647b37fd81eb420420,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 20
+      value: 32
       objectReference: {fileID: 0}
     - target: {fileID: 3400514668385839822, guid: a79beff614c1d1647b37fd81eb420420,
         type: 3}
@@ -108,81 +107,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 3400514668385839822, guid: a79beff614c1d1647b37fd81eb420420,
     type: 3}
   m_PrefabInstance: {fileID: 1633181232556976105}
-  m_PrefabAsset: {fileID: 0}
---- !u!1001 &3010035948180408334
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 8286396515453176003}
-    m_Modifications:
-    - target: {fileID: 4059069876582215846, guid: 4696c9850c2313a4cba9492d206c0aa0,
-        type: 3}
-      propertyPath: m_Name
-      value: Room BLR
-      objectReference: {fileID: 0}
-    - target: {fileID: 4059069876582215847, guid: 4696c9850c2313a4cba9492d206c0aa0,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 4059069876582215847, guid: 4696c9850c2313a4cba9492d206c0aa0,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4059069876582215847, guid: 4696c9850c2313a4cba9492d206c0aa0,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4059069876582215847, guid: 4696c9850c2313a4cba9492d206c0aa0,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4059069876582215847, guid: 4696c9850c2313a4cba9492d206c0aa0,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4059069876582215847, guid: 4696c9850c2313a4cba9492d206c0aa0,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4059069876582215847, guid: 4696c9850c2313a4cba9492d206c0aa0,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4059069876582215847, guid: 4696c9850c2313a4cba9492d206c0aa0,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4059069876582215847, guid: 4696c9850c2313a4cba9492d206c0aa0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4059069876582215847, guid: 4696c9850c2313a4cba9492d206c0aa0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4059069876582215847, guid: 4696c9850c2313a4cba9492d206c0aa0,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 4696c9850c2313a4cba9492d206c0aa0, type: 3}
---- !u!4 &1265930629277087913 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 4059069876582215847, guid: 4696c9850c2313a4cba9492d206c0aa0,
-    type: 3}
-  m_PrefabInstance: {fileID: 3010035948180408334}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &8052606520761802456
 PrefabInstance:
@@ -279,7 +203,7 @@ PrefabInstance:
     - target: {fileID: 8096130864206347081, guid: 4da3b113638441b43a43ec4c10f94ff2,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 40
+      value: 64
       objectReference: {fileID: 0}
     - target: {fileID: 8096130864206347081, guid: 4da3b113638441b43a43ec4c10f94ff2,
         type: 3}
