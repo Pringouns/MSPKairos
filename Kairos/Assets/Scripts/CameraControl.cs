@@ -1,9 +1,11 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CameraControl : MonoBehaviour
 {
+    
     public void moveCamera(Vector3 newPos)
     {
         newPos.z = -10;
@@ -18,4 +20,16 @@ public class CameraControl : MonoBehaviour
     {
         Time.timeScale = 1;
     }
+
+    void Start(){
+        pause();
+    }
+
+    void Update(){
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+         if(sceneIndex != 0){
+            unpause();
+        }
+    }
+
 }
