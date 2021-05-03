@@ -11,12 +11,21 @@ public class ShootingEnemy : MonoBehaviour
     public GameObject projectile;
     [SerializeField]  int currentHealth;
     [SerializeField] int maxHealth = 100;
-
+    public EnemyState currentState;
+  
 
     public Transform player;
+    public enum EnemyState
+    {
+        alive,
+        death
+    }
+
+
     // Use this for initialization
     void Start()
     {
+        currentState = EnemyState.alive;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBtwShots = startTimeBtwShots;
 
@@ -25,45 +34,56 @@ public class ShootingEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+        switch (currentState)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-        }
-        else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
-        {
-            transform.position = this.transform.position;
-        }
-        else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
-        }
+            case EnemyState.alive:
+                if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+                }
+                else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
+                {
+                    transform.position = this.transform.position;
+                }
+                else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+                }
 
 
-        if (timeBtwShots <= 0)
-        {
-            Instantiate(projectile, transform.position, Quaternion.identity);
-            timeBtwShots = startTimeBtwShots;
-        }
-        else {
-            timeBtwShots -= Time.deltaTime;
+                if (timeBtwShots <= 0)
+                {
+                    Instantiate(projectile, transform.position, Quaternion.identity);
+                    timeBtwShots = startTimeBtwShots;
+                }
+                else
+                {
+                    timeBtwShots -= Time.deltaTime;
+                }
+
+                break;
+            case EnemyState.death:
+                Debug.Log("Enemy state is death");
+                Die();
+                break;
         }
     }
+      
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
 
         if (currentHealth <= 0)
         {
-            die();
+            currentState = EnemyState.death;
         }
     }
 
-    void die()
+    void Die()
     {
         Debug.Log("Enemy died!");
 
-        GetComponent<Collider2D>().enabled = false;
-        this.enabled = false;
+        Destroy(gameObject);
     }
 
 

@@ -114,7 +114,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   attackRange: 0.5
-  damage: 20
+  damage: 2
   attackDelay: 0
 --- !u!50 &692124785472801697
 Rigidbody2D:
