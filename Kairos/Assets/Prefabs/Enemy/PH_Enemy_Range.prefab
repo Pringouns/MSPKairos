@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3124481378354945412}
   - component: {fileID: 3124481378354945413}
   - component: {fileID: 3124481378354945415}
-  - component: {fileID: 5391183828738710343}
   - component: {fileID: 8257557820615987825}
   m_Layer: 0
   m_Name: PH_Enemy_Range
@@ -99,33 +98,12 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!114 &5391183828738710343
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3124481378354945409}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f05174db8b8d54d8ebdffd40f498b99a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 0
-  stoppingDistance: 0
-  retreatDistance: 0
-  startTimeBtwShots: 1
-  projectile: {fileID: 6878134845839551781, guid: 894b9ed65adce4a68a74a84376489fff,
-    type: 3}
-  currentHealth: 10
-  maxHealth: 100
-  player: {fileID: 0}
 --- !u!58 &8257557820615987825
 CircleCollider2D:
   m_ObjectHideFlags: 0
