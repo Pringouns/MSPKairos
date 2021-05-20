@@ -14,6 +14,7 @@ public class BossProjectile : MonoBehaviour
     public int damage;
     private float lastAttackTime;
     public float attackDelay;
+    
 
 
 
@@ -52,11 +53,11 @@ public class BossProjectile : MonoBehaviour
     }
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.transform.tag == "Player")
-        {
-            other.GetComponent<CharacterController2D>().TakeDamage(damage);
-            Destroy(this.gameObject);
+        CharacterController2D player = other.GetComponent<CharacterController2D>();
+       if (player != null) {
+            player.TakeDamage(damage);
         }
+   
 
     }
     void DestroyProjectile()

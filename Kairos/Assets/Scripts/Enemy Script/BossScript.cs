@@ -10,9 +10,6 @@ public class BossScript : MonoBehaviour
     [SerializeField]
     float aggroRange;
 
-    [SerializeField]
-    float moveSpeed;
-
     Rigidbody2D rb2d;
     public int maxHealth = 100;
     int currentHealth;
@@ -27,7 +24,7 @@ public class BossScript : MonoBehaviour
     public float speed;
     public float stoppingDistance;
     public float retreatDistance;
-
+    public LayerMask playerLayer;
 
     // Start is called before the first frame update
     void Start()
@@ -42,10 +39,10 @@ public class BossScript : MonoBehaviour
     {
         //Distance to player
         float distToPlayer = Vector2.Distance(transform.position, player.position);
-       
-            if(distToPlayer < aggroRange)
+
+
+        if (distToPlayer < aggroRange)
         {
-            //code to chase player
             ChasePlayer();
         }
         else
@@ -64,20 +61,15 @@ public class BossScript : MonoBehaviour
                     //Record the Time we attacked
                     lastAttackTime = Time.time;
                 }
-            
         }
+       
     }
     
 
-    private void stopShooting()
-    {
-
-        throw new NotImplementedException();
-    }
-
     private void startShootingPlayer()
     {
-        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+
+            if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
@@ -89,7 +81,10 @@ public class BossScript : MonoBehaviour
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
         }
-
+       else  if (Vector2.Distance(transform.position, player.position) < attackRange)
+        {
+            StopChasingPlayer();
+        }
 
         if (timeBtwShots <= 0)
         {
@@ -100,10 +95,7 @@ public class BossScript : MonoBehaviour
         {
             timeBtwShots -= Time.deltaTime;
         }
-        if (Vector2.Distance(transform.position, player.position) < 5) {
-            Debug.Log(Vector2.Distance(transform.position, player.position));
-           StopChasingPlayer();
-        }
+        
         throw new NotImplementedException();
     }
 
@@ -112,13 +104,13 @@ public class BossScript : MonoBehaviour
         if (transform.position.x < player.position.x)
         {
             //enemy is to the left side of the player, so move right
-            rb2d.velocity = new Vector2(moveSpeed, 0);
+            rb2d.velocity = new Vector2(speed, 0);
             transform.localScale = new Vector2(1, 1);
         }
         else if (transform.position.x > player.position.x)
         {
             //enemy is to the right side of the player, so move left
-            rb2d.velocity = new Vector2(-moveSpeed, 0);
+            rb2d.velocity = new Vector2(-speed, 0);
             transform.localScale = new Vector2(-1, 1);
         }
     }
@@ -141,9 +133,16 @@ public class BossScript : MonoBehaviour
 
     void die()
     {
+        Destroy(gameObject);
         Debug.Log("Enemy died!");
-
-        GetComponent<Collider2D>().enabled = false;
-        this.enabled = false;
+    }
+    public void GetDamage(int damage) // Remove Damage from actual LifePoints
+    {
+        currentHealth -= damage;
+    }
+    void OnTriggerEnter2D(Collider2D Col)
+    {
+        if (Col.CompareTag("StandardAttack"))
+            GetDamage(damage);
     }
 }
