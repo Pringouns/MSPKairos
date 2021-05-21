@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class PlayerAttackScript : MonoBehaviour
 {
+<<<<<<< Updated upstream
    public CharacterController2D ctrl_Player;
    public cannonScript ctrl_cannon; // zum testen wegen dmg
+=======
+   //-------------
+   // this is the script of the player attack - its for the weapon!!
+   //-------------
+   public CharacterController2D ctrl_Player;
+   public EnemyMelee ctrl_enemy;
+>>>>>>> Stashed changes
    public Transform fireWeapon;
 
    public Transform attackPoint;
@@ -19,7 +27,11 @@ public class PlayerAttackScript : MonoBehaviour
     void Start()
     { 
        ctrl_Player = FindObjectOfType<CharacterController2D>();
+<<<<<<< Updated upstream
        ctrl_cannon = FindObjectOfType<cannonScript>();
+=======
+       ctrl_enemy = FindObjectOfType<EnemyMelee>();
+>>>>>>> Stashed changes
     }
     void FixedUpdate()
     {
@@ -37,7 +49,11 @@ public class PlayerAttackScript : MonoBehaviour
     void Shoot() 
     {
        Instantiate(fireAttackPrefab, fireWeapon.position, fireWeapon.rotation);
+<<<<<<< Updated upstream
        ctrl_Player.GetDamage(ctrl_Player.bulletLPremove); // 20 dmg bei fernkampfangriff
+=======
+       ctrl_Player.GetDamage(ctrl_Player.bulletLPremove); // 20 dmg - remote combat
+>>>>>>> Stashed changes
     }
 
     void Attack() 
@@ -49,7 +65,11 @@ public class PlayerAttackScript : MonoBehaviour
        foreach (Collider2D Enemy in hitEnemies)
        {
         // enemy.GetComponent<Enemy>().TakeDamage(ctrl_Player.attackDamage);
+<<<<<<< Updated upstream
           ctrl_cannon.m_CannonLP -= ctrl_Player.m_MeleeDamage;
+=======
+          ctrl_enemy.TakeDamage(ctrl_Player.m_MeleeDamage);
+>>>>>>> Stashed changes
        }
     }
 
@@ -60,7 +80,11 @@ public class PlayerAttackScript : MonoBehaviour
        {
           if (ctrl_Player.getMelee())
           {
+<<<<<<< Updated upstream
              ctrl_cannon.m_CannonLP -= 50;
+=======
+             ctrl_enemy.TakeDamage(ctrl_Player.m_MeleeDamage);
+>>>>>>> Stashed changes
           }
        }
     }

@@ -7,7 +7,12 @@ TagManager:
   - PlayerMeleeAttack
   - PlayerFireAttack
   - Enemy
+<<<<<<< Updated upstream
   - StandardAttack
+=======
+  - PlayerMeleeAttack
+  - PlayerFireAttack
+>>>>>>> Stashed changes
   layers:
   - Default
   - TransparentFX
@@ -17,9 +22,15 @@ TagManager:
   - UI
   - 
   - 
+<<<<<<< Updated upstream
   - 
   - 
   - 
+=======
+  - Player
+  - Obstacle
+  - Enemys
+>>>>>>> Stashed changes
   - 
   - 
   - 

@@ -3,16 +3,28 @@ using UnityEngine.Events;
 
 public class CharacterController2D : MonoBehaviour
 {
+   // CharacterController
+   // -- Main script of the Player --
+   // here you can find all about the player - movement, attack, damage, lifepoints, shield, etc..
+   // this script is the heart of the player
+   //----------------------------------------------------------
+
+
    //SerializeField is for UnityInterface - edit field for the variables
    [SerializeField] private Vector3 spawn = new Vector3(-6, -3, 0);           // Spawn Point when LP <= 0
 	[SerializeField] private float m_JumpForce = 400f;							      // Jump strength of the player
+   // Player
    [SerializeField] private int m_LifePoints = 100;                           // lp - default 100 
-   [SerializeField] private int m_damage     = 5;
-   [SerializeField] public int m_MeleeDamage = 50;
    [SerializeField] public int m_maxLP = 100;
+   [SerializeField] public int m_shieldPoints = 0;                            //shield points zum start auf 0
+   [SerializeField] public int m_maxshield = 125;                             // limit of shield points
+   [SerializeField] private int m_damage = 5;
+   [SerializeField] public int m_MeleeDamage = 50;
+   //Movement
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// maxSpeed at Crouch movement, 1=100%
 	[Range(0, .3f)] [SerializeField] private float m_MovementSmoothing = .05f;	// How much to smooth out the movement
 	[SerializeField] private bool m_AirControl = false;							   // for movement(left,right) while jumping
+   //
 	[SerializeField] private LayerMask m_WhatIsGround;							      // LayerMask for checking Ground(you can move script data in)
 	[SerializeField] private Transform m_GroundCheck;							      // A position marking where to check if the player is grounded.
 	[SerializeField] private Transform m_CeilingCheck;							      // A position marking where to check for ceilings
@@ -38,6 +50,7 @@ public class CharacterController2D : MonoBehaviour
    public float attackRate = 2f;
    public float nextAttackTime = 0f;
 
+
 	[Header("Events")]
 	[Space]
 
@@ -48,6 +61,17 @@ public class CharacterController2D : MonoBehaviour
 
 	public BoolEvent OnCrouchEvent;
 	private bool m_wasCrouching = false;
+
+   public void Update() 
+   {
+      if (this.m_LifePoints <= 0)
+      {
+         PlayerRespawn();
+         // player state - death
+      }
+
+   }
+
 
 	private void Awake()
 	{
@@ -60,7 +84,6 @@ public class CharacterController2D : MonoBehaviour
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
 	}
-
 	private void FixedUpdate()
 	{
 		bool wasGrounded = m_Grounded;
@@ -81,8 +104,6 @@ public class CharacterController2D : MonoBehaviour
 
       m_Animator.SetBool("Ground", m_Grounded);
 	}
-
-
 	public void Move(float move, bool crouch, bool jump)
 	{
 		// If crouching, check to see if the character can stand up
@@ -182,6 +203,39 @@ public class CharacterController2D : MonoBehaviour
          }
       }
    }
+   public void AddShieldPoints(int shield) 
+   {
+      if (this.m_shieldPoints >= this.m_maxshield) // if actual shieldPoints higher or the same as max shield
+      {
+         this.m_shieldPoints = this.m_maxshield;   // set shield to maximum if actual shield higher then max
+         shield = 0;
+      }
+      this.m_shieldPoints += shield;         // added shield to player shieldpoints
+   }
+   public int ShieldProtection(int damage)
+   {
+      if (this.m_shieldPoints > 0) //if shield is higher then 0
+      {
+         if (this.m_shieldPoints < damage) // example 20 shield and 30 damage
+         {
+            damage -= this.m_shieldPoints;
+         }
+         if (this.m_shieldPoints > damage) // example 40 shield and 10 damage
+         {
+            this.m_shieldPoints -= damage;
+         }
+      }
+      if (this.m_shieldPoints < 0) // if no shield there - return normal damage
+      {
+         return damage;
+      }
+      if (damage < 0) // if damage after protection lower then 0 (-20) set to 0
+      {
+         damage = 0;
+      }
+      return damage; // new damage value after shield protection
+      
+   }
    public int GetLifePoints() // return the actual LifePoints of the Player
    {
       return this.m_LifePoints;       // actual lifepoints
@@ -191,6 +245,33 @@ public class CharacterController2D : MonoBehaviour
          transform.position = spawn; // transform position of player to spawn
          m_LifePoints = 100;  // set LP up to 100
    }
+<<<<<<< Updated upstream:Kairos/Assets/Scripts/CharacterController2D.cs
+=======
+
+    public void Stop()
+    {
+		m_Rigidbody2D.velocity = Vector2.zero;
+    }
+
+   public void TakeDamage(int damage)
+   {
+      int actualDamage = 0;   // actual damage set to 0
+      actualDamage = ShieldProtection(damage); // actual damage after shield protection
+      m_LifePoints -= actualDamage;
+	   if ( m_LifePoints <= 0)	{
+		   Debug.Log ("Player Dead");
+
+		GetComponent<BoxCollider2D>().enabled = false;
+		GetComponent<CircleCollider2D>().enabled = false;
+		GetComponent<EdgeCollider2D>().enabled = false;
+		GetComponent<CharacterController2D>().enabled = false;
+      GetComponent<PlayerMovement>().enabled = false;
+		GetComponent<Animator>().enabled = false;
+		GetComponent<PlayerCombat>().enabled = false;
+		this.enabled = false;   
+	   }
+   }
+>>>>>>> Stashed changes:Kairos/Assets/Scripts/Player Script/CharacterController2D.cs
    public void MeleeAttack(bool melee) // Player Meele("c")
    {
       this.melee = melee;
