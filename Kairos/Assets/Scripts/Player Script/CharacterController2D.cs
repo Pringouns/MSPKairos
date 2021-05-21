@@ -26,8 +26,11 @@ public class CharacterController2D : MonoBehaviour
 	private bool   m_FacingRight = true;               // For determining which way the player is currently facing.
 	private        Vector3 m_Velocity = Vector3.zero;
 
-   //Attack
-   public bool melee = false; // "C" Nahkampf
+	Renderer m_ObjectRenderer; // to invisible the object
+
+
+	//Attack
+	public bool melee = false; // "C" Nahkampf
    public bool fire = false; // "V" Fernkampf
    // fire
    public int bulletDmg = 50;
@@ -59,6 +62,8 @@ public class CharacterController2D : MonoBehaviour
 
 		if (OnCrouchEvent == null)
 			OnCrouchEvent = new BoolEvent();
+
+		m_ObjectRenderer = GetComponent<Renderer>(); // to invisible the object 
 	}
 
 	private void FixedUpdate()
@@ -211,8 +216,10 @@ public class CharacterController2D : MonoBehaviour
         GetComponent<PlayerMovement>().enabled = false;
 		GetComponent<Animator>().enabled = false;
 		GetComponent<PlayerCombat>().enabled = false;
-		this.enabled = false;   
-	   }
+		this.enabled = false;
+
+		m_ObjectRenderer.enabled = false; // to invisible the object 
+		}
    }
    public void MeleeAttack(bool melee) // Player Meele("c")
    {

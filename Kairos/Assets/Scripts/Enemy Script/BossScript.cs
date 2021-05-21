@@ -25,6 +25,7 @@ public class BossScript : MonoBehaviour
     public LayerMask playerLayer;
     Vector2 Direction;
 
+    Renderer m_ObjectRenderer; // to invisible the object
 
     // Start is called before the first frame update
     void Start()
@@ -33,6 +34,9 @@ public class BossScript : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBtwShots = startTimeBtwShots;
+
+        m_ObjectRenderer = GetComponent<Renderer>(); // to invisible the object 
+
     }
     // Update is called once per frame
     void Update()
@@ -142,8 +146,8 @@ public class BossScript : MonoBehaviour
 
     void die()
     {
-        Destroy(gameObject);
-        
+        m_ObjectRenderer.enabled = false; // to invisible the object 
+
         Debug.Log("Enemy died!");
     }
     public void GetDamage(int damage) // Remove Damage from actual LifePoints
@@ -156,10 +160,5 @@ public class BossScript : MonoBehaviour
             GetDamage(damage);
     }
 
-    public static void ChangeAlpha(this Material mat, float alphaValue)
-    {
-        Color oldColor = mat.color;
-        Color newColor = new Color(oldColor.r, oldColor.g, oldColor.b, alphaValue);
-        mat.SetColor("_Color", newColor);
-    }
+   
 }
