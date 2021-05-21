@@ -4,16 +4,14 @@ using System;
 
 public class BossScript : MonoBehaviour
 {
-    [SerializeField]
+    //[SerializeField]
     Transform player;
 
-    [SerializeField]
-    float aggroRange;
+    public float aggroRange;
 
     Rigidbody2D rb2d;
     public int maxHealth = 100;
     int currentHealth;
-
     public float attackRange;
     public int damage;
     private float lastAttackTime;
@@ -25,6 +23,8 @@ public class BossScript : MonoBehaviour
     public float stoppingDistance;
     public float retreatDistance;
     public LayerMask playerLayer;
+    Vector2 Direction;
+
 
     // Start is called before the first frame update
     void Start()
@@ -40,17 +40,24 @@ public class BossScript : MonoBehaviour
         //Distance to player
         float distToPlayer = Vector2.Distance(transform.position, player.position);
 
+        Vector2 targetPos = player.transform.position;
+
+        Direction = targetPos - (Vector2)transform.position;
+
+        RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, aggroRange);
+
+
 
         if (distToPlayer < aggroRange)
         {
             ChasePlayer();
         }
-        else
+        else if (distToPlayer > aggroRange && player.position.y > -7 && player.position.x < 17)
         {
             //Stop chasing player
             StopChasingPlayer();
-             
-        }
+
+
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
             if (distanceToPlayer < attackRange)
             {
@@ -61,8 +68,10 @@ public class BossScript : MonoBehaviour
                     //Record the Time we attacked
                     lastAttackTime = Time.time;
                 }
+            }
+
+
         }
-       
     }
     
 
@@ -96,7 +105,7 @@ public class BossScript : MonoBehaviour
             timeBtwShots -= Time.deltaTime;
         }
         
-        throw new NotImplementedException();
+       
     }
 
     void ChasePlayer()
@@ -118,7 +127,7 @@ public class BossScript : MonoBehaviour
     private void StopChasingPlayer()
     {
         rb2d.velocity = Vector2.zero;
-        startShootingPlayer();
+        //startShootingPlayer();
     }
 
     public void TakeDamage(int damage)
@@ -134,6 +143,7 @@ public class BossScript : MonoBehaviour
     void die()
     {
         Destroy(gameObject);
+        
         Debug.Log("Enemy died!");
     }
     public void GetDamage(int damage) // Remove Damage from actual LifePoints
@@ -144,5 +154,12 @@ public class BossScript : MonoBehaviour
     {
         if (Col.CompareTag("StandardAttack"))
             GetDamage(damage);
+    }
+
+    public static void ChangeAlpha(this Material mat, float alphaValue)
+    {
+        Color oldColor = mat.color;
+        Color newColor = new Color(oldColor.r, oldColor.g, oldColor.b, alphaValue);
+        mat.SetColor("_Color", newColor);
     }
 }

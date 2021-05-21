@@ -166,6 +166,7 @@ public class CharacterController2D : MonoBehaviour
       //transform.localScale = theScale;
 
       transform.Rotate(0f, 180f, 0f);
+		Debug.Log(m_LifePoints);
 	}
    public void GetDamage(int damage) // Remove Damage from actual LifePoints
    {

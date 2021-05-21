@@ -8,12 +8,10 @@ public class BossProjectile : MonoBehaviour
     private Vector2 target;
 
 
-    private CharacterController2D characterController2D;
-
-    public float attackRange;
+    private float attackRange;
     public int damage;
     private float lastAttackTime;
-    public float attackDelay;
+    private float attackDelay;
     
 
 
@@ -38,18 +36,18 @@ public class BossProjectile : MonoBehaviour
         //Attacking AI
 
         //Check the distance between Enemy and player
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-        if (distanceToPlayer < attackRange)
-        {
-            //Check to see if enough time passed after the last attack
-            if (Time.time > lastAttackTime + attackDelay)
-            {
-                player.SendMessage("TakeDamage", damage);
+        //float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        //if (distanceToPlayer < attackRange)
+        //{
+        //    //Check to see if enough time passed after the last attack
+        //    if (Time.time > lastAttackTime + attackDelay)
+        //    {
+        //        player.SendMessage("TakeDamage", damage);
 
-                //Record the Time we attacked
-                lastAttackTime = Time.time;
-            }
-        }
+        //        //Record the Time we attacked
+        //        lastAttackTime = Time.time;
+        //    }
+        //}
     }
     void OnTriggerEnter2D(Collider2D other)
     {
