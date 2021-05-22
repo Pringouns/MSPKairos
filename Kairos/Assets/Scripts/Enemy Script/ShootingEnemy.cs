@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ShootingEnemy : MonoBehaviour
+public class ShootingEnemy : MonoBehaviour, State_Pattern
 {
     public float speed;
     public float stoppingDistance;
@@ -11,21 +11,15 @@ public class ShootingEnemy : MonoBehaviour
     public GameObject projectile;
     [SerializeField]  int currentHealth;
     [SerializeField] int maxHealth = 100;
-    public EnemyState currentState;
-  
+    StateMachine stateMachine = new StateMachine();
 
     public Transform player;
-    public enum EnemyState
-    {
-        alive,
-        death
-    }
-
 
     // Use this for initialization
     void Start()
     {
-        currentState = EnemyState.alive;
+        currentHealth = maxHealth;
+        
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBtwShots = startTimeBtwShots;
 
@@ -34,10 +28,8 @@ public class ShootingEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        switch (currentState)
-        {
-            case EnemyState.alive:
-                if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+        stateMachine.ChangeState(new TestState(this), currentHealth);
+        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
                 {
                     transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
                 }
@@ -61,12 +53,11 @@ public class ShootingEnemy : MonoBehaviour
                     timeBtwShots -= Time.deltaTime;
                 }
 
-                break;
-            case EnemyState.death:
-                Debug.Log("Enemy state is death");
+               
+              
                 Die();
-                break;
-        }
+
+
     }
       
     public void TakeDamage(int damage)
@@ -75,7 +66,7 @@ public class ShootingEnemy : MonoBehaviour
 
         if (currentHealth <= 0)
         {
-            currentState = EnemyState.death;
+           
         }
     }
 
@@ -86,6 +77,13 @@ public class ShootingEnemy : MonoBehaviour
         Destroy(gameObject);
     }
 
+    public void Alive()
+    {
+        Debug.Log("GameObject is alive");
+    }
 
-
+    public void Dead()
+    {
+        Debug.Log("GameObject is dead");
+    }
 }
