@@ -131,7 +131,7 @@ public class BossScript : MonoBehaviour
     private void StopChasingPlayer()
     {
         rb2d.velocity = Vector2.zero;
-        //startShootingPlayer();
+        startShootingPlayer();
     }
 
     public void TakeDamage(int damage)
