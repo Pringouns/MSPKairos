@@ -4,15 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - PlayerMeleeAttack
-  - PlayerFireAttack
-  - Enemy
-<<<<<<< Updated upstream
+  - Ground
   - StandardAttack
-=======
-  - PlayerMeleeAttack
-  - PlayerFireAttack
->>>>>>> Stashed changes
+  - Wall
+  - Ceiling
+  - Platform
+  - Door
+  - Enemy
   layers:
   - Default
   - TransparentFX
@@ -22,15 +20,9 @@ TagManager:
   - UI
   - 
   - 
-<<<<<<< Updated upstream
-  - 
-  - 
-  - 
-=======
   - Player
   - Obstacle
-  - Enemys
->>>>>>> Stashed changes
+  - Enemies
   - 
   - 
   - 

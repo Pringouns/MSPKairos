@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3124481378354945415}
   - component: {fileID: 5391183828738710343}
   - component: {fileID: 8257557820615987825}
-  m_Layer: 10
+  m_Layer: 0
   m_Name: PH_Enemy_Range
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -125,7 +125,7 @@ MonoBehaviour:
     type: 3}
   currentHealth: 10
   maxHealth: 100
-  player: {fileID: 1495137815035304937, guid: 65cb85e1026440441a15384965313324, type: 3}
+  player: {fileID: 0}
 --- !u!58 &8257557820615987825
 CircleCollider2D:
   m_ObjectHideFlags: 0

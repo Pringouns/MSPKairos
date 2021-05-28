@@ -10,6 +10,7 @@ public class ShootingEnemy : MonoBehaviour
     public float startTimeBtwShots;
     public GameObject projectile;
     [SerializeField]  int currentHealth;
+    [SerializeField] int maxHealth = 100;
 
 
     public Transform player;

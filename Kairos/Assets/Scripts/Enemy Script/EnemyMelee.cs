@@ -17,7 +17,7 @@ public class EnemyMelee : MonoBehaviour
 
     public Transform target;
     public int maxHealth = 100;
-    int currentHealth = 100;
+    int currentHealth;
 
     public float attackRange = 0.5f;
     public int damage = 40;
