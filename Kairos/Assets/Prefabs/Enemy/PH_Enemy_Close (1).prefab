@@ -43,6 +43,7 @@ GameObject:
   - component: {fileID: 5323917296406942449}
   - component: {fileID: 5323917296406942454}
   - component: {fileID: 5323917296406942455}
+  - component: {fileID: 4417924754027151442}
   m_Layer: 10
   m_Name: PH_Enemy_Close (1)
   m_TagString: Enemy
@@ -125,7 +126,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -182,3 +183,19 @@ MonoBehaviour:
   attackRange: 2
   damage: 40
   attackDelay: 2
+--- !u!58 &4417924754027151442
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5323917296406942452}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  serializedVersion: 2
+  m_Radius: 1.11

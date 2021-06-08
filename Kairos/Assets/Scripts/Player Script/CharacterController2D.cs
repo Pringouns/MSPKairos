@@ -18,7 +18,6 @@ public class CharacterController2D : MonoBehaviour
    [SerializeField] public int m_maxLP = 100;
    [SerializeField] public int m_shieldPoints = 0;                            //shield points zum start auf 0
    [SerializeField] public int m_maxshield = 125;                             // limit of shield points
-   [SerializeField] private int m_damage = 5;
    [SerializeField] public int m_MeleeDamage = 50;
    //Movement
 	[Range(0, 1)] [SerializeField] private float m_CrouchSpeed = .36f;			// maxSpeed at Crouch movement, 1=100%
@@ -37,6 +36,10 @@ public class CharacterController2D : MonoBehaviour
    private        Animator m_Animator;
 	private bool   m_FacingRight = true;               // For determining which way the player is currently facing.
 	private        Vector3 m_Velocity = Vector3.zero;
+
+   //for "disabled" mode after die
+   SpriteRenderer spriteRenderer;
+   public bool playerEnabled = true;
 
    //Attack
    public bool melee = false; // "C" Nahkampf
@@ -59,13 +62,18 @@ public class CharacterController2D : MonoBehaviour
 	[System.Serializable]
 	public class BoolEvent : UnityEvent<bool> { }
 
-	public BoolEvent OnCrouchEvent;
-	private bool m_wasCrouching = false;
+   public BoolEvent OnCrouchEvent;
+   private bool m_wasCrouching = false;
 
+   void Start() 
+   {
+      spriteRenderer = GetComponent<SpriteRenderer>();
+   }
    public void Update() 
    {
       if (this.m_LifePoints <= 0)
       {
+         SetPlayerDisabled();
          PlayerRespawn();
          // player state - death
       }
@@ -78,11 +86,11 @@ public class CharacterController2D : MonoBehaviour
 		m_Rigidbody2D = GetComponent<Rigidbody2D>();
       m_Animator    = GetComponent<Animator>();
 
-		if (OnLandEvent == null)
-			OnLandEvent = new UnityEvent();
+      if (OnLandEvent == null)
+         OnLandEvent = new UnityEvent();
 
-		if (OnCrouchEvent == null)
-			OnCrouchEvent = new BoolEvent();
+      if (OnCrouchEvent == null)
+         OnCrouchEvent = new BoolEvent();
 	}
 	private void FixedUpdate()
 	{
@@ -102,7 +110,7 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 
-      m_Animator.SetBool("Ground", m_Grounded);
+     m_Animator.SetBool("Ground", m_Grounded);
 	}
 	public void Move(float move, bool crouch, bool jump)
 	{
@@ -135,7 +143,8 @@ public class CharacterController2D : MonoBehaviour
 				// Disable one of the colliders when crouching
 				if (m_CrouchDisableCollider != null)
 					m_CrouchDisableCollider.enabled = false;
-			} else
+			} 
+         else
 			{
 				// Enable the collider when not crouching
 				if (m_CrouchDisableCollider != null)
@@ -180,12 +189,6 @@ public class CharacterController2D : MonoBehaviour
 	{
 		// Switch the way the player is labelled as facing.
 		m_FacingRight = !m_FacingRight;
-
-      //// Multiply the player's x local scale by -1.
-      //Vector3 theScale = transform.localScale;
-      //theScale.x *= -1;
-      //transform.localScale = theScale;
-
       transform.Rotate(0f, 180f, 0f);
 	}
    public void GetDamage(int damage) // Remove Damage from actual LifePoints
@@ -244,10 +247,8 @@ public class CharacterController2D : MonoBehaviour
    {
          transform.position = spawn; // transform position of player to spawn
          m_LifePoints = 100;  // set LP up to 100
+         SetPlayerEnabled();
    }
-<<<<<<< Updated upstream:Kairos/Assets/Scripts/CharacterController2D.cs
-=======
-
     public void Stop()
     {
 		m_Rigidbody2D.velocity = Vector2.zero;
@@ -258,20 +259,7 @@ public class CharacterController2D : MonoBehaviour
       int actualDamage = 0;   // actual damage set to 0
       actualDamage = ShieldProtection(damage); // actual damage after shield protection
       m_LifePoints -= actualDamage;
-	   if ( m_LifePoints <= 0)	{
-		   Debug.Log ("Player Dead");
-
-		GetComponent<BoxCollider2D>().enabled = false;
-		GetComponent<CircleCollider2D>().enabled = false;
-		GetComponent<EdgeCollider2D>().enabled = false;
-		GetComponent<CharacterController2D>().enabled = false;
-      GetComponent<PlayerMovement>().enabled = false;
-		GetComponent<Animator>().enabled = false;
-		GetComponent<PlayerCombat>().enabled = false;
-		this.enabled = false;   
-	   }
    }
->>>>>>> Stashed changes:Kairos/Assets/Scripts/Player Script/CharacterController2D.cs
    public void MeleeAttack(bool melee) // Player Meele("c")
    {
       this.melee = melee;
@@ -288,9 +276,18 @@ public class CharacterController2D : MonoBehaviour
    {
       return this.fire;
    }
-   void OnTriggerEnter2D(Collider2D Col)
+   public bool getPlayerState() 
    {
-      if (Col.CompareTag("StandardAttack"))
-         GetDamage(m_damage);
+      return this.playerEnabled;
+   }
+   private void SetPlayerDisabled() 
+   {
+      playerEnabled = false;
+      spriteRenderer.enabled = false; // "disabled mode"
+   }
+   private void SetPlayerEnabled() 
+   {
+      playerEnabled = true;
+      spriteRenderer.enabled = true; // "disabled mode"
    }
 }
