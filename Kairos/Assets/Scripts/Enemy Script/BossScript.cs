@@ -7,13 +7,14 @@ public class BossScript : MonoBehaviour
     //[SerializeField]
     Transform player;
 
+    
     public float aggroRange;
 
     Rigidbody2D rb2d;
     public int maxHealth = 100;
     int currentHealth;
     public float attackRange;
-    public int damage;
+    public int damage = 20;
     private float lastAttackTime;
     public float attackDelay;
     private float timeBtwShots;
@@ -22,10 +23,10 @@ public class BossScript : MonoBehaviour
     public float speed;
     public float stoppingDistance;
     public float retreatDistance;
-    public LayerMask playerLayer;
+    public LayerMask whatIsPlayer;
     Vector2 Direction;
 
-    Renderer m_ObjectRenderer; // to invisible the object
+    SpriteRenderer m_ObjectRenderer; // to invisible the object
 
     // Start is called before the first frame update
     void Start()
@@ -35,7 +36,7 @@ public class BossScript : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBtwShots = startTimeBtwShots;
 
-        m_ObjectRenderer = GetComponent<Renderer>(); // to invisible the object 
+        m_ObjectRenderer = GetComponent<SpriteRenderer>(); // to invisible the object 
 
     }
     // Update is called once per frame
@@ -52,7 +53,7 @@ public class BossScript : MonoBehaviour
 
 
 
-        if (distToPlayer < aggroRange)
+        if (distToPlayer <= aggroRange)
         {
             ChasePlayer();
         }
@@ -60,6 +61,27 @@ public class BossScript : MonoBehaviour
         {
             //Stop chasing player
             StopChasingPlayer();
+
+
+            // test for flip
+            if (transform.position.x < player.position.x)
+            {
+                //enemy is to the left side of the player, so move right
+                
+                transform.localScale = new Vector2(-1, 1);
+            }
+            else if (transform.position.x > player.position.x)
+            {
+                //enemy is to the right side of the player, so move left
+               
+                transform.localScale = new Vector2(1, 1);
+            }
+
+
+
+
+
+
 
 
             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
@@ -73,6 +95,12 @@ public class BossScript : MonoBehaviour
                     lastAttackTime = Time.time;
                 }
             }
+
+            else if (distanceToPlayer >= attackRange)
+            {
+                Attack();
+            }
+
 
 
         }
@@ -114,17 +142,17 @@ public class BossScript : MonoBehaviour
 
     void ChasePlayer()
     {
-        if (transform.position.x < player.position.x)
+        if (transform.position.x < player.position.x && transform.position.x > 0.1)
         {
             //enemy is to the left side of the player, so move right
             rb2d.velocity = new Vector2(speed, 0);
-            transform.localScale = new Vector2(1, 1);
+            transform.localScale = new Vector2(-1, 1);
         }
-        else if (transform.position.x > player.position.x)
+        else if (transform.position.x > player.position.x && transform.position.x < 0.1)
         {
             //enemy is to the right side of the player, so move left
             rb2d.velocity = new Vector2(-speed, 0);
-            transform.localScale = new Vector2(-1, 1);
+            transform.localScale = new Vector2(1, 1);
         }
     }
 
@@ -160,5 +188,19 @@ public class BossScript : MonoBehaviour
             GetDamage(damage);
     }
 
-   
+
+    void Attack()
+    {
+        //attack enemys in range
+        Collider2D[] damageToPlayer = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsPlayer);
+
+        for (int i = 0; i < damageToPlayer.Length; i++)
+        {
+            
+            damageToPlayer[i].GetComponent<CharacterController2D>().TakeDamage(damage);
+            
+        }
+    }
+
+
 }
