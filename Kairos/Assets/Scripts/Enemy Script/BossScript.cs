@@ -14,7 +14,7 @@ public class BossScript : MonoBehaviour
     public int maxHealth = 100;
     int currentHealth;
     public float attackRange;
-    public int damage = 20;
+    public int damage;
     private float lastAttackTime;
     public float attackDelay;
     private float timeBtwShots;
@@ -56,6 +56,16 @@ public class BossScript : MonoBehaviour
         if (distToPlayer <= aggroRange)
         {
             ChasePlayer();
+
+            //Check to see if enough time passed after the last attack
+            if (Time.time > lastAttackTime + attackDelay)
+            {
+                Attack();
+                //Record the Time we attacked
+                lastAttackTime = Time.time;
+            }
+
+            
         }
         else if (distToPlayer > aggroRange && player.position.y > -7 && player.position.x < 17)
         {
@@ -96,10 +106,10 @@ public class BossScript : MonoBehaviour
                 }
             }
 
-            else if (distanceToPlayer >= attackRange)
-            {
-                Attack();
-            }
+            //else if (distanceToPlayer >= attackRange)
+            //{
+            //    Attack();
+            //}
 
 
 
@@ -198,8 +208,10 @@ public class BossScript : MonoBehaviour
         {
             
             damageToPlayer[i].GetComponent<CharacterController2D>().TakeDamage(damage);
+           
             
         }
+
     }
 
 
