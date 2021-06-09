@@ -73,11 +73,20 @@ public class PlayerAttackScript : MonoBehaviour
        //attack enemys in range
        Collider2D[] damageToEnemies = Physics2D.OverlapCircleAll(attackPosition.position, attackRange, whatIsEnemie);
 
-       for (int i = 0; i < damageToEnemies.Length; i++) 
+       for (int i = 0; i < damageToEnemies.Length; i++)
        {
-          //damageToEnemies[i].GetComponent<BossScript>().currentHealth -= ctrl_Player.attackDamage;
-          damageToEnemies[i].GetComponent<EnemyMelee>().TakeDamage(ctrl_Player.attackDamage);
-          damageToEnemies[i].GetComponent<ShootingEnemy>().TakeDamage(ctrl_Player.attackDamage);
+          //if (damageToEnemies[i].CompareTag("Boss"))
+         // {
+             //damageToEnemies[i].GetComponent<BossScript>().currentHealth -= ctrl_Player.attackDamage;
+          //}
+          if (damageToEnemies[i].CompareTag("Enemy"))
+          {
+             damageToEnemies[i].GetComponent<EnemyMelee>().TakeDamage(ctrl_Player.attackDamage);
+          }
+          if (damageToEnemies[i].CompareTag("EnemyDistance"))
+          {
+             damageToEnemies[i].GetComponent<ShootingEnemy>().TakeDamage(ctrl_Player.attackDamage);
+          }
        }
     }
     void OnDrawGizmosSelected()  // Red attack range circle and scene view

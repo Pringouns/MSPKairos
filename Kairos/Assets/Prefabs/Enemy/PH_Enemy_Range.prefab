@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 5391183828738710343}
   - component: {fileID: 8257557820615987825}
   - component: {fileID: 1476768812767071633}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PH_Enemy_Range
-  m_TagString: Enemy
+  m_TagString: EnemyDistance
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,8 +29,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3124481378354945409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 4.3532, y: -2.3995, z: 0}
-  m_LocalScale: {x: 0.84725314, y: 0.8603068, z: 1}
+  m_LocalPosition: {x: 4.4715, y: -2.5516, z: 0}
+  m_LocalScale: {x: 0.9525562, y: 1.0458405, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0

@@ -13,7 +13,7 @@ public class FireBullet : MonoBehaviour
    public ShootingEnemy ctrl_ShootingEnemy;
    //public BossScript ctrl_bossEnemy;
    //--------------------
-
+   public float timeToDestory = 0.5f;
    public float speed = 20f;
    public Rigidbody2D rb;
 
@@ -27,7 +27,7 @@ public class FireBullet : MonoBehaviour
       //ctrl_bossEnemy = FindObjectOfType<BossScript>();
 
       rb.velocity = transform.right * speed;
-      Destroy(this.gameObject, 1); // destroy after shooting in 1 second
+      Destroy(this.gameObject, timeToDestory); // destroy after shooting in 1 second
    }
    
    void OnTriggerEnter2D(Collider2D Col)

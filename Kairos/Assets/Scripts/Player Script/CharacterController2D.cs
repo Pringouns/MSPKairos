@@ -14,8 +14,8 @@ public class CharacterController2D : MonoBehaviour
    [SerializeField] private Vector3 spawn = new Vector3(-6, -3, 0);           // Spawn Point when LP <= 0
 	[SerializeField] private float m_JumpForce = 400f;							      // Jump strength of the player
    // Player
-   [SerializeField] private int m_LifePoints = 100;                           // lp - default 100 
-   [SerializeField] public int m_maxLP = 100;
+   [SerializeField] private int m_LifePoints = 125;                           // lp - default 125 
+   [SerializeField] public int m_maxLP = 125;
    [SerializeField] public int m_shieldPoints = 0;                            //shield points zum start auf 0
    [SerializeField] public int m_maxshield = 125;                             // limit of shield points
    [SerializeField] public int m_MeleeDamage = 50;
@@ -242,7 +242,7 @@ public class CharacterController2D : MonoBehaviour
    public void PlayerRespawn() // Teleport the Player to Spawn Point and Reset the LifePoints
    {
          transform.position = spawn; // transform position of player to spawn
-         m_LifePoints = 100;  // set LP up to 100
+         m_LifePoints = m_maxLP;  // set LP up to 100
          SetPlayerEnabled();
    }
     public void Stop()
