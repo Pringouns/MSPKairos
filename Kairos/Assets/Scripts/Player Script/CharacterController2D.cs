@@ -218,13 +218,14 @@ public class CharacterController2D : MonoBehaviour
          if (this.m_shieldPoints < damage) // example 20 shield and 30 damage
          {
             damage -= this.m_shieldPoints;
+            this.m_shieldPoints = 0;
          }
          if (this.m_shieldPoints > damage) // example 40 shield and 10 damage
          {
             this.m_shieldPoints -= damage;
          }
       }
-      if (this.m_shieldPoints < 0) // if no shield there - return normal damage
+      if (this.m_shieldPoints <= 0) // if no shield there - return normal damage
       {
          return damage;
       }
@@ -254,7 +255,14 @@ public class CharacterController2D : MonoBehaviour
    {
       int actualDamage = 0;   // actual damage set to 0
       actualDamage = ShieldProtection(damage); // actual damage after shield protection
-      m_LifePoints -= actualDamage;
+      if (m_shieldPoints == 0)
+      {
+         m_LifePoints -= actualDamage;
+      }
+      else 
+      {
+         Debug.Log("Sucessfull Dodge");
+      }
    }
    public void MeleeAttack(bool melee) // Player Meele("c")
    {

@@ -22,7 +22,7 @@ public class EnemyMelee : MonoBehaviour
     int currentHealth = 0;
 
     public float attackRange = 0.5f;
-    public int damage = 40;
+    public int damage = 10;
     private float lastAttackTime;
     public float attackDelay;
 

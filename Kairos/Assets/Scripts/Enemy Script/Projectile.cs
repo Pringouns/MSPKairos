@@ -12,7 +12,7 @@ public class Projectile : MonoBehaviour
     private CharacterController2D characterController2D;
 
     public float attackRange = 0.5f;
-    public int damage = 40;
+    public int damage = 10;
     private float lastAttackTime;
     public float attackDelay;
 
@@ -26,7 +26,7 @@ public class Projectile : MonoBehaviour
 
         target = new Vector2(player.position.x, player.position.y);
     }
-
+   
     // Update is called once per frame
     void Update()
     {
