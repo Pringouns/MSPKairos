@@ -63,7 +63,7 @@ public class PlayerAttackScript : MonoBehaviour
     void Shoot() 
     {
        Instantiate(fireAttackPrefab, fireWeapon.position, fireWeapon.rotation);
-       ctrl_Player.GetDamage(ctrl_Player.bulletLPremove); // 20 dmg - remote combat
+       ctrl_Player.TakeDamage(ctrl_Player.bulletLPremove); // 20 dmg - remote combat
 
        Debug.Log("FireAttack!");
     }

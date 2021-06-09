@@ -191,10 +191,6 @@ public class CharacterController2D : MonoBehaviour
 		m_FacingRight = !m_FacingRight;
       transform.Rotate(0f, 180f, 0f);
 	}
-   public void GetDamage(int damage) // Remove Damage from actual LifePoints
-   {
-      m_LifePoints = m_LifePoints - damage;
-   }
    public void GetHealth(int health) // Added the Health to actual LifePoints
    {
       if(this.m_LifePoints <= m_maxLP)
