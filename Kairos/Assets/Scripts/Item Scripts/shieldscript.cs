@@ -15,7 +15,10 @@ public class shieldscript : MonoBehaviour
     // Update is called once per frame
     void OnTriggerEnter2D(Collider2D col)
     {
-       ctrl_Player.AddShieldPoints(m_AddShieldPoints);
-       Destroy(this.gameObject);
+       if (col.CompareTag("Player"))
+       {
+          ctrl_Player.AddShieldPoints(m_AddShieldPoints);
+          Destroy(this.gameObject);
+       }
     }
 }

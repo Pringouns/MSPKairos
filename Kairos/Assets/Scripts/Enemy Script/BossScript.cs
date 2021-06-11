@@ -42,50 +42,53 @@ public class BossScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //Distance to player
-        float distToPlayer = Vector2.Distance(transform.position, player.position);
+       if (m_ObjectRenderer.enabled)
+       {
 
-        Vector2 targetPos = player.transform.position;
+          //Distance to player
+          float distToPlayer = Vector2.Distance(transform.position, player.position);
 
-        Direction = targetPos - (Vector2)transform.position;
+          Vector2 targetPos = player.transform.position;
 
-        RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, aggroRange);
+          Direction = targetPos - (Vector2)transform.position;
+
+          RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, aggroRange);
 
 
 
-        if (distToPlayer <= aggroRange)
-        {
-            ChasePlayer();
+          if (distToPlayer <= aggroRange)
+          {
+             ChasePlayer();
 
-            //Check to see if enough time passed after the last attack
-            if (Time.time > lastAttackTime + attackDelay)
-            {
+             //Check to see if enough time passed after the last attack
+             if (Time.time > lastAttackTime + attackDelay)
+             {
                 Attack();
                 //Record the Time we attacked
                 lastAttackTime = Time.time;
-            }
-
-            
-        }
-        else if (distToPlayer > aggroRange && player.position.y > -7 && player.position.x < 17)
-        {
-            //Stop chasing player
-            StopChasingPlayer();
+             }
 
 
-            // test for flip
-            if (transform.position.x < player.position.x)
-            {
+          }
+          else if (distToPlayer > aggroRange && player.position.y > -7 && player.position.x < 17)
+          {
+             //Stop chasing player
+             StopChasingPlayer();
+
+
+             // test for flip
+             if (transform.position.x < player.position.x)
+             {
                 //enemy is to the left side of the player, so move right
-                
+
                 transform.localScale = new Vector2(-1, 1);
-            }
-            else if (transform.position.x > player.position.x)
-            {
+             }
+             else if (transform.position.x > player.position.x)
+             {
                 //enemy is to the right side of the player, so move left
-               
+
                 transform.localScale = new Vector2(1, 1);
-            }
+             }
 
 
 
@@ -94,26 +97,27 @@ public class BossScript : MonoBehaviour
 
 
 
-            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-            if (distanceToPlayer < attackRange)
-            {
+             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+             if (distanceToPlayer < attackRange)
+             {
                 //Check to see if enough time passed after the last attack
                 if (Time.time > lastAttackTime + attackDelay)
                 {
-                    player.SendMessage("TakeDamage", damage);
-                    //Record the Time we attacked
-                    lastAttackTime = Time.time;
+                   player.SendMessage("TakeDamage", damage);
+                   //Record the Time we attacked
+                   lastAttackTime = Time.time;
                 }
-            }
+             }
 
-            //else if (distanceToPlayer >= attackRange)
-            //{
-            //    Attack();
-            //}
+             //else if (distanceToPlayer >= attackRange)
+             //{
+             //    Attack();
+             //}
 
 
 
-        }
+          }
+       }
     }
     
 
