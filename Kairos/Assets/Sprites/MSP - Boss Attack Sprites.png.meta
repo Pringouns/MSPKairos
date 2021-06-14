@@ -1,0 +1,440 @@
+fileFormatVersion: 2
+guid: d1a666d5b10853742912a0ee0ecdba98
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -5823143942813101120
+    second: MSP - Boss Attack Sprites_0
+  - first:
+      213: 5670306592392292385
+    second: MSP - Boss Attack Sprites_1
+  - first:
+      213: 6927549325700927923
+    second: MSP - Boss Attack Sprites_2
+  - first:
+      213: -8381201132240656206
+    second: MSP - Boss Attack Sprites_4
+  - first:
+      213: -2174602322774190958
+    second: MSP - Boss Attack Sprites_5
+  - first:
+      213: 5369927354703910139
+    second: MSP - Boss Attack Sprites_6
+  - first:
+      213: -6985218597489212046
+    second: MSP - Boss Attack Sprites_7
+  - first:
+      213: -828527562133304916
+    second: MSP - Boss Attack Sprites_8
+  - first:
+      213: 1752125692543091581
+    second: MSP - Boss Attack Sprites_9
+  - first:
+      213: -2403592768323962904
+    second: MSP - Boss Attack Sprites_10
+  - first:
+      213: 6854737118258030698
+    second: MSP - Boss Attack Sprites_11
+  - first:
+      213: -5728179984546889513
+    second: MSP - Boss Attack Sprites_12
+  - first:
+      213: -7741747626814981244
+    second: MSP - Boss Attack Sprites_15
+  - first:
+      213: -7897049631616752804
+    second: MSP - Boss Attack Sprites_16
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: MSP - Boss Attack Sprites_0
+      rect:
+        serializedVersion: 2
+        x: 33
+        y: 283
+        width: 66
+        height: 69
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c358a4bf69003fa0800000000000000
+      internalID: -5823143942813101120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Attack Sprites_1
+      rect:
+        serializedVersion: 2
+        x: 160
+        y: 277
+        width: 73
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 128291f9dc9f0be40800000000000000
+      internalID: 5670306592392292385
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Attack Sprites_2
+      rect:
+        serializedVersion: 2
+        x: 310
+        y: 275
+        width: 57
+        height: 77
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b196627869932060800000000000000
+      internalID: 6927549325700927923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Attack Sprites_4
+      rect:
+        serializedVersion: 2
+        x: 443
+        y: 286
+        width: 58
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b8a1b9c9fdffab80800000000000000
+      internalID: -8381201132240656206
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Attack Sprites_5
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 286
+        width: 59
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2941e4f75b242d1e0800000000000000
+      internalID: -2174602322774190958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Attack Sprites_6
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 159
+        width: 60
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bf497ce5a70d58a40800000000000000
+      internalID: 5369927354703910139
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Attack Sprites_7
+      rect:
+        serializedVersion: 2
+        x: 157
+        y: 159
+        width: 76
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2750432e1b48f0f90800000000000000
+      internalID: -6985218597489212046
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Attack Sprites_8
+      rect:
+        serializedVersion: 2
+        x: 291
+        y: 159
+        width: 76
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ca98c6c629a7084f0800000000000000
+      internalID: -828527562133304916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Attack Sprites_9
+      rect:
+        serializedVersion: 2
+        x: 430
+        y: 159
+        width: 71
+        height: 75
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d73cdd1c80dc05810800000000000000
+      internalID: 1752125692543091581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Attack Sprites_10
+      rect:
+        serializedVersion: 2
+        x: 579
+        y: 159
+        width: 56
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e73a5bac19b4aed0800000000000000
+      internalID: -2403592768323962904
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Attack Sprites_11
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 67
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a686472571be02f50800000000000000
+      internalID: 6854737118258030698
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Attack Sprites_12
+      rect:
+        serializedVersion: 2
+        x: 154
+        y: 32
+        width: 79
+        height: 66
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7d0849b37aa6180b0800000000000000
+      internalID: -5728179984546889513
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Attack Sprites_15
+      rect:
+        serializedVersion: 2
+        x: 278
+        y: 22
+        width: 89
+        height: 78
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48b38fa0d89cf8490800000000000000
+      internalID: -7741747626814981244
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: MSP - Boss Attack Sprites_16
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 13
+        width: 84
+        height: 85
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c53aadd433b086290800000000000000
+      internalID: -7897049631616752804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
