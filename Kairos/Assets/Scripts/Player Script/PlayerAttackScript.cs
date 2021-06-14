@@ -8,6 +8,7 @@ public class PlayerAttackScript : MonoBehaviour
    // this is the script of the player attack - its for the weapon!!
    //-------------
    public CharacterController2D ctrl_Player;
+   public BossScript ctrl_boss;
    public EnemyMelee ctrl_enemy;
    public ShootingEnemy ctrl_ShootingEnemy;
    public Transform fireWeapon;
@@ -25,7 +26,8 @@ public class PlayerAttackScript : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    { 
+    {
+       ctrl_boss = FindObjectOfType<BossScript>();
        ctrl_Player = FindObjectOfType<CharacterController2D>();
        ctrl_enemy = FindObjectOfType<EnemyMelee>();
        ctrl_ShootingEnemy = FindObjectOfType<ShootingEnemy>();
@@ -75,10 +77,10 @@ public class PlayerAttackScript : MonoBehaviour
 
        for (int i = 0; i < damageToEnemies.Length; i++)
        {
-          //if (damageToEnemies[i].CompareTag("Boss"))
-         // {
-             //damageToEnemies[i].GetComponent<BossScript>().currentHealth -= ctrl_Player.attackDamage;
-          //}
+          if (damageToEnemies[i].CompareTag("Boss"))
+         {
+            damageToEnemies[i].GetComponent<BossScript>().TakeDamage(ctrl_Player.attackDamage);
+          }
           if (damageToEnemies[i].CompareTag("Enemy"))
           {
              damageToEnemies[i].GetComponent<EnemyMelee>().TakeDamage(ctrl_Player.attackDamage);

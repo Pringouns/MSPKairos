@@ -11,7 +11,7 @@ public class FireBullet : MonoBehaviour
    public CharacterController2D ctrl_Player;
    public EnemyMelee ctrl_enemy; // zum testen wegen dmg
    public ShootingEnemy ctrl_ShootingEnemy;
-   //public BossScript ctrl_bossEnemy;
+   public BossScript ctrl_bossEnemy;
    //--------------------
    public float timeToDestory = 0.5f;
    public float speed = 20f;
@@ -24,7 +24,7 @@ public class FireBullet : MonoBehaviour
       ctrl_enemy = FindObjectOfType<EnemyMelee>();
       ctrl_ShootingEnemy = FindObjectOfType<ShootingEnemy>();
       ctrl_Player = FindObjectOfType<CharacterController2D>();
-      //ctrl_bossEnemy = FindObjectOfType<BossScript>();
+      ctrl_bossEnemy = FindObjectOfType<BossScript>();
 
       rb.velocity = transform.right * speed;
       Destroy(this.gameObject, timeToDestory); // destroy after shooting in 1 second
@@ -44,10 +44,10 @@ public class FireBullet : MonoBehaviour
          Destroy(this.gameObject);
          Debug.Log("Camper!");
       }
-      //if (Col.CompareTag("Boss")) 
-      //{
-      //   ctrl_bossEnemy.currentHealth -= ctrl_Player.bulletLPremove; 
-      //}
+      if (Col.CompareTag("Boss")) 
+      {
+         ctrl_bossEnemy.TakeDamage(ctrl_Player.bulletLPremove); 
+      }
       else 
       {
          Debug.Log("Daneben!");

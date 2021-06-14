@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ctrl_Player: {fileID: 0}
+  ctrl_boss: {fileID: 0}
   ctrl_enemy: {fileID: 0}
   ctrl_ShootingEnemy: {fileID: 0}
   fireWeapon: {fileID: 4959912564085969015}
@@ -264,7 +265,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: -0.00000020861626, y: 0.5721042}
@@ -357,7 +358,6 @@ MonoBehaviour:
   m_maxLP: 100
   m_shieldPoints: 0
   m_maxshield: 125
-  m_damage: 5
   m_MeleeDamage: 50
   m_CrouchSpeed: 0.36
   m_MovementSmoothing: 0.05
@@ -368,6 +368,7 @@ MonoBehaviour:
   m_GroundCheck: {fileID: 226822788740827956}
   m_CeilingCheck: {fileID: 6300661762727996109}
   m_CrouchDisableCollider: {fileID: 6306664633459867786}
+  playerEnabled: 1
   melee: 0
   fire: 0
   bulletDmg: 50
@@ -404,7 +405,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6286055417283811438}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 2ee42109ae31de042b65336ded73d3a0, type: 2}
   m_CullingMode: 0

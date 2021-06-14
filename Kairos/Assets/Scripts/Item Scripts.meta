@@ -1,6 +1,10 @@
 fileFormatVersion: 2
+<<<<<<< HEAD:Kairos/Assets/Scripts/Item Scripts.meta
 guid: 4cf52ce4fd6ddf54aae3bb0094014089
 folderAsset: yes
+=======
+guid: db74980c78fa984bc82a439643c95961
+>>>>>>> origin/Boss:Kairos/Assets/AstarPathfindingProject/Documentation/documentation.pdf.meta
 DefaultImporter:
   externalObjects: {}
   userData: 

@@ -94,7 +94,7 @@ BoxCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0.004572049, y: -0.006268233}
@@ -146,6 +146,7 @@ MonoBehaviour:
   ctrl_Player: {fileID: 0}
   ctrl_enemy: {fileID: 0}
   ctrl_ShootingEnemy: {fileID: 0}
+  ctrl_bossEnemy: {fileID: 0}
   timeToDestory: 0.5
   speed: 20
   rb: {fileID: -3631189616415003053}

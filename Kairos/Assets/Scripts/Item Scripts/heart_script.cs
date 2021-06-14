@@ -12,7 +12,10 @@ public class heart_script : MonoBehaviour
    }
    void OnTriggerEnter2D(Collider2D col) 
    {
-      ctrl_Player.GetHealth(m_AddLifePoints);
-      Destroy(this.gameObject);
+      if (col.CompareTag("Player"))
+      {
+         ctrl_Player.GetHealth(m_AddLifePoints);
+         Destroy(this.gameObject);
+      }
    }
 }

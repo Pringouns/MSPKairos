@@ -11,9 +11,9 @@ TagManager:
   - Platform
   - Door
   - Enemy
-  - Boss
   - PlayerMeleeAttack
   - PlayerFireAttack
+  - EnemyDistance
   layers:
   - Default
   - TransparentFX
