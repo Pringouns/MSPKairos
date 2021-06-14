@@ -118,11 +118,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 287859160897057843}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7faf033869c11e048805f3384cc0eff8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8980e63cf8bd29445920600332572bf1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   ctrl_Player: {fileID: 0}
-  ctrl_cannon: {fileID: 0}
+  ctrl_enemy: {fileID: 0}
   fireWeapon: {fileID: 2886432448565206650}
+  attackPoint: {fileID: 0}
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 0
   fireAttackPrefab: {fileID: 7907738475847751137, guid: b6b548066a464704b9601308dc8bcec6,
     type: 3}

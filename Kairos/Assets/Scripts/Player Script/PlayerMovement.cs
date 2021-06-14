@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+   //----- PlayerMovement-----
+   // this script observes the activity of the player and reacts to key presses 
+   //-----------------------------------
+
    public CharacterController2D controller;
    public float runSpeed   = 40f;              // runSpeed from CharacterController
    float horizontalMove    = 0f;
@@ -17,35 +21,31 @@ public class PlayerMovement : MonoBehaviour
     {
        horizontalMove = Input.GetAxisRaw("Horizontal") * runSpeed;
 
-       if(Input.GetButtonDown("Jump")) //Vorgefertig in Projekt einstellung - Unity
+       if(Input.GetButtonDown("Jump")) // defined in the unity settings
        {
          jump = true;
        }
 
-       if(Input.GetButtonDown("Crouch")) //Vorgefertig in Projekt einstellung - Unity
+       if(Input.GetButtonDown("Crouch")) // defined in the unity settings
        {
           crouch = true;
        }
-       else if(Input.GetButtonUp("Crouch")) //Damit man solange crouchen kann wie man den Button gedrückt hält und wenn man los lässt hört man auf
+       else if(Input.GetButtonUp("Crouch")) //defined in the unity settings - when you release the button it stops to crouch
        {
           crouch = false;
        }
 
-       if (Input.GetButtonDown("melee")) // "c"
+       if (Input.GetButtonDown("melee")) // defined in the unity settings
        {
           melee = true;
        }
-       else if (Input.GetButtonUp("melee")) //"C" los lassen
+       else if (Input.GetButtonUp("melee")) //defined in the unity settings - when you release the button it stops to melee
        {
           melee = false;
        }
-       if (Input.GetButtonDown("Fire")) // "v"
+       if (Input.GetButtonDown("Fire")) // defined in the unity settings
        {
           fire = true;
-       }
-       if (controller.GetLifePoints() <= 0)
-       {
-          controller.PlayerRespawn();
        }
     }
 
