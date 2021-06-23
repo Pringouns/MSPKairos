@@ -26,6 +26,8 @@ public class EnemyMelee : MonoBehaviour
     private float lastAttackTime;
     public float attackDelay;
     public Animator animator;
+    public LayerMask whatIsPlayer;
+
 
     // Start is called before the first frame update
     void Start()
@@ -37,11 +39,7 @@ public class EnemyMelee : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       //check enemy health
-       if (currentHealth <= 0)
-       {
-          die();
-       }
+       
        if (spriteRenderer.enabled)
        {
           //Distance to player
@@ -119,10 +117,42 @@ public class EnemyMelee : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+
+        //check enemy health
+        if (currentHealth <= 0)
+        {
+            die();
+        }
     }
 
     void die()
     {
         spriteRenderer.enabled = false;
+    }
+
+    public void GetDamage(int damage) // Remove Damage from actual LifePoints
+    {
+        currentHealth -= damage;
+    }
+    void OnTriggerEnter2D(Collider2D Col)
+    {
+        if (Col.CompareTag("StandardAttack"))
+            GetDamage(damage);
+    }
+
+
+    void Attack()
+    {
+        //attack enemys in range
+        Collider2D[] damageToPlayer = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsPlayer);
+
+        for (int i = 0; i <= damageToPlayer.Length; i++)
+        {
+
+            damageToPlayer[i].GetComponent<CharacterController2D>().TakeDamage(damage);
+            
+
+        }
+
     }
 }
