@@ -25,6 +25,7 @@ public class EnemyMelee : MonoBehaviour
     public int damage = 10;
     private float lastAttackTime;
     public float attackDelay;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -50,16 +51,19 @@ public class EnemyMelee : MonoBehaviour
           {
              //code to chase player
              ChasePlayer();
+                animator.SetBool("Chasing", true);
           }
           else
           {
              //Stop chasing player
              StopChasingPlayer();
-          }
-          //Attacking AI
+                animator.SetBool("Chasing", false);
 
-          //Check the distance between Enemy and player
-          float distanceToPlayer = Vector3.Distance(transform.position, target.position);
+            }
+            //Attacking AI
+
+            //Check the distance between Enemy and player
+            float distanceToPlayer = Vector3.Distance(transform.position, target.position);
           if (distanceToPlayer < attackRange)
           {
              //Check to see if enough time passed after the last attack
@@ -75,6 +79,21 @@ public class EnemyMelee : MonoBehaviour
        {
          //death
        }
+
+
+        // test for flip
+        if (transform.position.x < player.position.x)
+        {
+            //enemy is to the left side of the player, so move right
+
+            transform.localScale = new Vector2(-1, 1);
+        }
+        else if (transform.position.x > player.position.x)
+        {
+            //enemy is to the right side of the player, so move left
+
+            transform.localScale = new Vector2(1, 1);
+        }
     } 
 
     void ChasePlayer()
@@ -83,13 +102,13 @@ public class EnemyMelee : MonoBehaviour
         {
             //enemy is to the left side of the player, so move right
             rb2d.velocity = new Vector2(moveSpeed, 0);
-            transform.localScale = new Vector2(1, 1);
+            transform.localScale = new Vector2(-1, 1);
         }
         else if(transform.position.x > player.position.x)
         {
             //enemy is to the right side of the player, so move left
             rb2d.velocity = new Vector2(-moveSpeed, 0);
-            transform.localScale = new Vector2(-1, 1);
+            transform.localScale = new Vector2(1, 1);
         }
     }
 

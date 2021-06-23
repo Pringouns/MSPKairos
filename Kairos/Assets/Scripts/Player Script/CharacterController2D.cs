@@ -110,7 +110,7 @@ public class CharacterController2D : MonoBehaviour
 			}
 		}
 
-     m_Animator.SetBool("Ground", m_Grounded);
+     // m_Animator.SetBool("Ground", m_Grounded);
 	}
 	public void Move(float move, bool crouch, bool jump)
 	{

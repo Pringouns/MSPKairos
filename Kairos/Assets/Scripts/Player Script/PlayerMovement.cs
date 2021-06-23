@@ -15,6 +15,9 @@ public class PlayerMovement : MonoBehaviour
    bool crouch = false;
    bool melee  = false;
    bool fire   = false;
+    public Animator animator; 
+
+
 
     // Update is called once per frame
     void Update()
@@ -24,6 +27,8 @@ public class PlayerMovement : MonoBehaviour
        if(Input.GetButtonDown("Jump")) // defined in the unity settings
        {
          jump = true;
+
+         animator.SetBool("isJumping", true);
        }
 
        if(Input.GetButtonDown("Crouch")) // defined in the unity settings
@@ -46,7 +51,14 @@ public class PlayerMovement : MonoBehaviour
        if (Input.GetButtonDown("Fire")) // defined in the unity settings
        {
           fire = true;
+
+          animator.SetTrigger("fire");
        }
+    }
+
+    public void OnLanding() 
+    {
+        animator.SetBool("isJumping", false);
     }
 
     void FixedUpdate() 

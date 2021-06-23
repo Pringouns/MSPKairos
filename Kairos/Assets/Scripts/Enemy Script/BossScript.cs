@@ -25,6 +25,7 @@ public class BossScript : MonoBehaviour
     public float retreatDistance;
     public LayerMask whatIsPlayer;
     Vector2 Direction;
+    public Animator animator;
 
     SpriteRenderer m_ObjectRenderer; // to invisible the object
 
@@ -45,78 +46,75 @@ public class BossScript : MonoBehaviour
        if (m_ObjectRenderer.enabled)
        {
 
-          //Distance to player
-          float distToPlayer = Vector2.Distance(transform.position, player.position);
-
-          Vector2 targetPos = player.transform.position;
-
-          Direction = targetPos - (Vector2)transform.position;
-
-          RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, aggroRange);
 
 
+        //Distance to player
+        float distToPlayer = Vector2.Distance(transform.position, player.position);
 
-          if (distToPlayer <= aggroRange)
-          {
-             ChasePlayer();
+        Vector2 targetPos = player.transform.position;
 
-             //Check to see if enough time passed after the last attack
-             if (Time.time > lastAttackTime + attackDelay)
-             {
-                Attack();
-                //Record the Time we attacked
-                lastAttackTime = Time.time;
-             }
+        Direction = targetPos - (Vector2)transform.position;
+
+        RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, aggroRange);
 
 
-          }
-          else if (distToPlayer > aggroRange && player.position.y > -7 && player.position.x < 17)
-          {
-             //Stop chasing player
-             StopChasingPlayer();
 
-
-             // test for flip
-             if (transform.position.x < player.position.x)
-             {
+            // flip
+            if (transform.position.x < player.position.x)
+            {
                 //enemy is to the left side of the player, so move right
 
                 transform.localScale = new Vector2(-1, 1);
-             }
-             else if (transform.position.x > player.position.x)
-             {
+            }
+            else if (transform.position.x > player.position.x)
+            {
                 //enemy is to the right side of the player, so move left
 
                 transform.localScale = new Vector2(1, 1);
-             }
+            }
 
 
 
 
+            if (distToPlayer <= aggroRange)
+            {
+                ChasePlayer();
 
-
-
-
-             float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-             if (distanceToPlayer < attackRange)
-             {
                 //Check to see if enough time passed after the last attack
                 if (Time.time > lastAttackTime + attackDelay)
                 {
-                   player.SendMessage("TakeDamage", damage);
-                   //Record the Time we attacked
-                   lastAttackTime = Time.time;
+
+                Attack();
+                //Record the Time we attacked
+                lastAttackTime = Time.time;
+
                 }
-             }
-
-             //else if (distanceToPlayer >= attackRange)
-             //{
-             //    Attack();
-             //}
 
 
+            }
+              
+            else if (distToPlayer > aggroRange && player.position.y > -7 && player.position.x < 17)
+            {
+                 //Stop chasing player
+                 StopChasingPlayer();
+             
+                 float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-          }
+                  if (distanceToPlayer < attackRange)
+                  {
+                        //Check to see if enough time passed after the last attack
+                        if (Time.time > lastAttackTime + attackDelay)
+                        {
+                            player.SendMessage("TakeDamage", damage);
+                            //Record the Time we attacked
+                            lastAttackTime = Time.time;
+                        }
+                  }       
+
+                
+
+
+            }
        }
     }
     
@@ -150,7 +148,6 @@ public class BossScript : MonoBehaviour
         {
             timeBtwShots -= Time.deltaTime;
         }
-        
        
     }
 
@@ -174,6 +171,8 @@ public class BossScript : MonoBehaviour
     {
         rb2d.velocity = Vector2.zero;
         startShootingPlayer();
+        animator.SetTrigger("Attack");
+
     }
 
     public void TakeDamage(int damage)
@@ -199,7 +198,7 @@ public class BossScript : MonoBehaviour
     void OnTriggerEnter2D(Collider2D Col)
     {
         if (Col.CompareTag("StandardAttack"))
-            GetDamage(damage);
+            GetDamage(damage);        
     }
 
 
@@ -208,15 +207,14 @@ public class BossScript : MonoBehaviour
         //attack enemys in range
         Collider2D[] damageToPlayer = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsPlayer);
 
-        for (int i = 0; i < damageToPlayer.Length; i++)
+        for (int i = 0; i <= damageToPlayer.Length; i++)
         {
             
             damageToPlayer[i].GetComponent<CharacterController2D>().TakeDamage(damage);
-           
-            
+            animator.SetTrigger("Attack");
+
         }
 
     }
-
 
 }
