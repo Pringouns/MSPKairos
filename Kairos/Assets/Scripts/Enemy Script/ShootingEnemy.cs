@@ -1,23 +1,24 @@
 ﻿using UnityEngine;
 using System.Collections;
+using Pathfinding;
 
 public class ShootingEnemy : MonoBehaviour
 {
-    public float speed;
-    public float stoppingDistance;
-    public float retreatDistance;
+    //public float speed;
+    //public float stoppingDistance;
+    //public float retreatDistance;
     private float timeBtwShots;
     public float startTimeBtwShots;
     public GameObject projectile;
     [SerializeField]  int currentHealth = 100;
     [SerializeField] int maxHealth = 100;
     SpriteRenderer spriteRenderer;
-
-    public Transform player;
+    public AIPath aiPath;
+    Transform player;
     // Use this for initialization
     void Start()
     {
-       currentHealth = maxHealth;
+        currentHealth = maxHealth;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBtwShots = startTimeBtwShots;
         spriteRenderer = GetComponent<SpriteRenderer>();
@@ -32,20 +33,30 @@ public class ShootingEnemy : MonoBehaviour
          }
          if (spriteRenderer.enabled)
          {
+            // for fliping
+            if (aiPath.desiredVelocity.x >= 0.01f)
+            {
+                transform.localScale = new Vector3(-1f, 1f, 1f);
+            }
+            else if (aiPath.desiredVelocity.x <= -0.01f)
+            {
+                transform.localScale = new Vector3(1f, 1f, 1f);
+            }
+    
 
 
-            if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
-            {
-               transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-            }
-            else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
-            {
-               transform.position = this.transform.position;
-            }
-            else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
-            {
-               transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
-            }
+            //if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+            //{
+            //   transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            //}
+            //else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
+            //{
+            //   transform.position = this.transform.position;
+            //}
+            //else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
+            //{
+            //   transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+            //}
 
 
             if (timeBtwShots <= 0)

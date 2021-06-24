@@ -50,6 +50,21 @@ public class Projectile : MonoBehaviour
                 lastAttackTime = Time.time;
             }
         }
+
+
+        // flip
+        if (transform.position.x < player.position.x)
+        {
+            //enemy is to the left side of the player, so move right
+
+            transform.localScale = new Vector2(-1, 1);
+        }
+        else if (transform.position.x > player.position.x)
+        {
+            //enemy is to the right side of the player, so move left
+
+            transform.localScale = new Vector2(1, 1);
+        }
     }
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -63,7 +78,7 @@ public class Projectile : MonoBehaviour
     void DestroyProjectile()
     {
         Destroy(gameObject);
-           }
+    }
 
 
 }

@@ -6,12 +6,8 @@ public class BossProjectile : MonoBehaviour
     public float speed;
     private Transform player;
     private Vector2 target;
-
-
-    private float attackRange;
     public int damage;
-    private float lastAttackTime;
-    private float attackDelay;
+   
     
 
 
@@ -33,21 +29,21 @@ public class BossProjectile : MonoBehaviour
         {
             DestroyProjectile();
         }
-        //Attacking AI
 
-        //Check the distance between Enemy and player
-        //float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-        //if (distanceToPlayer < attackRange)
-        //{
-        //    //Check to see if enough time passed after the last attack
-        //    if (Time.time > lastAttackTime + attackDelay)
-        //    {
-        //        player.SendMessage("TakeDamage", damage);
+        // flip
+        if (transform.position.x < player.position.x)
+        {
+            //enemy is to the left side of the player, so move right
 
-        //        //Record the Time we attacked
-        //        lastAttackTime = Time.time;
-        //    }
-        //}
+            transform.localScale = new Vector2(-1, 1);
+        }
+        else if (transform.position.x > player.position.x)
+        {
+            //enemy is to the right side of the player, so move left
+
+            transform.localScale = new Vector2(1, 1);
+        }
+
     }
     void OnTriggerEnter2D(Collider2D other)
     {
