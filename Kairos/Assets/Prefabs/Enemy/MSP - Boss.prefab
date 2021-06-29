@@ -16,9 +16,9 @@ GameObject:
   - component: {fileID: 7359721438302557725}
   - component: {fileID: 6098498900968388875}
   - component: {fileID: 6433048747872814123}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: MSP - Boss
-  m_TagString: Untagged
+  m_TagString: Boss
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -102,7 +102,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   aggroRange: 6
   maxHealth: 1000
-  attackRange: 1
+  currentHealth: 0
+  attackRange: 2
   damage: 20
   attackDelay: 1
   startTimeBtwShots: 1.3

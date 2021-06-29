@@ -42,6 +42,8 @@ GameObject:
   - component: {fileID: 5085226970912640752}
   - component: {fileID: 3382911525221018970}
   - component: {fileID: 274236853528234544}
+  - component: {fileID: 6641844816203576634}
+  - component: {fileID: 746101145767864306}
   m_Layer: 0
   m_Name: PlayerAttack
   m_TagString: PlayerMeleeAttack
@@ -155,6 +157,7 @@ MonoBehaviour:
   ctrl_boss: {fileID: 0}
   ctrl_enemy: {fileID: 0}
   ctrl_ShootingEnemy: {fileID: 0}
+  ctrl_flierEnemy: {fileID: 0}
   fireWeapon: {fileID: 4959912564085969015}
   attackPosition: {fileID: 0}
   whatIsEnemie:
@@ -164,6 +167,41 @@ MonoBehaviour:
   startTimeBtwAttack: 0
   fireAttackPrefab: {fileID: 7907738475847751137, guid: b6b548066a464704b9601308dc8bcec6,
     type: 3}
+  animator: {fileID: 0}
+--- !u!95 &6641844816203576634
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3104610392206049326}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a07e284a5b439b4f8f22a4aa869cb65, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!111 &746101145767864306
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3104610392206049326}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 0}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &6286055417283811438
 GameObject:
   m_ObjectHideFlags: 0
@@ -180,7 +218,7 @@ GameObject:
   - component: {fileID: 4779301968990245452}
   - component: {fileID: 6663403893589057864}
   - component: {fileID: 2427693526768746350}
-  - component: {fileID: 8874551247742115227}
+  - component: {fileID: 3017276946588375396}
   m_Layer: 8
   m_Name: MC Idle_0
   m_TagString: Player
@@ -397,7 +435,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   controller: {fileID: 6663403893589057864}
   runSpeed: 40
---- !u!95 &8874551247742115227
+  animator: {fileID: 0}
+--- !u!95 &3017276946588375396
 Animator:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -405,9 +444,9 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6286055417283811438}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 2ee42109ae31de042b65336ded73d3a0, type: 2}
+  m_Controller: {fileID: 9100000, guid: d9218f5a4afbd0b4e9e8b0fb0610f1da, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

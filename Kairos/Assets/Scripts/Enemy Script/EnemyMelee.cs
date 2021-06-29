@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyMelee : MonoBehaviour
 {
-    [SerializeField]
+   
     Transform player;
     
     [SerializeField]
@@ -17,7 +17,6 @@ public class EnemyMelee : MonoBehaviour
 
     SpriteRenderer spriteRenderer;
 
-    public Transform target;
     public int maxHealth = 100;
     int currentHealth = 0;
 
@@ -35,6 +34,7 @@ public class EnemyMelee : MonoBehaviour
         currentHealth = maxHealth;
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
+        player = GameObject.FindGameObjectWithTag("Player").transform;
     }
     // Update is called once per frame
     void Update()
@@ -61,22 +61,19 @@ public class EnemyMelee : MonoBehaviour
             //Attacking AI
 
             //Check the distance between Enemy and player
-            float distanceToPlayer = Vector3.Distance(transform.position, target.position);
+            float distanceToPlayer = Vector3.Distance(transform.position, player.position);
           if (distanceToPlayer < attackRange)
           {
              //Check to see if enough time passed after the last attack
              if (Time.time > lastAttackTime + attackDelay)
              {
-                target.SendMessage("TakeDamage", damage);
+                 Attack();
                 //Record the Time we attacked
                 lastAttackTime = Time.time;
              }
           }
        }
-       else 
-       {
-         //death
-       }
+       
 
 
         // test for flip
@@ -146,10 +143,11 @@ public class EnemyMelee : MonoBehaviour
         //attack enemys in range
         Collider2D[] damageToPlayer = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsPlayer);
 
-        for (int i = 0; i <= damageToPlayer.Length; i++)
+        for (int i = 0; i < damageToPlayer.Length; i++)
         {
 
             damageToPlayer[i].GetComponent<CharacterController2D>().TakeDamage(damage);
+            Debug.Log("attacking melee");
             
 
         }

@@ -12,7 +12,7 @@ public class BossScript : MonoBehaviour
 
     Rigidbody2D rb2d;
     public int maxHealth = 100;
-    int currentHealth;
+    public int currentHealth;
     public float attackRange;
     public int damage;
     private float lastAttackTime;
@@ -93,25 +93,25 @@ public class BossScript : MonoBehaviour
 
             }
               
-            else if (distToPlayer > aggroRange && player.position.y > -7 && player.position.x < 17)
+            else if (distToPlayer > aggroRange && player.position.y > -7 && player.position.x < 17) // this one was just to test if the Boss would stop chasing and shooting the player when the player is out of the room
             {
                  //Stop chasing player
                  StopChasingPlayer();
-             
-                 float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-                  if (distanceToPlayer < attackRange)
-                  {
-                        //Check to see if enough time passed after the last attack
-                        if (Time.time > lastAttackTime + attackDelay)
-                        {
-                            player.SendMessage("TakeDamage", damage);
-                            //Record the Time we attacked
-                            lastAttackTime = Time.time;
-                        }
-                  }       
+                float distanceToPlayer = Vector3.Distance(transform.position, player.position);
 
-                
+                if (distanceToPlayer < attackRange)                                           
+                {
+                    //Check to see if enough time passed after the last attack
+                    if (Time.time > lastAttackTime + attackDelay)
+                    {
+                        player.SendMessage("TakeDamage", damage);
+                        //Record the Time we attacked
+                        lastAttackTime = Time.time;
+                    }
+                }
+
+
 
 
             }
@@ -122,7 +122,7 @@ public class BossScript : MonoBehaviour
     private void startShootingPlayer()
     {
 
-            if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
         {
             transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
         }
@@ -207,12 +207,12 @@ public class BossScript : MonoBehaviour
         //attack enemys in range
         Collider2D[] damageToPlayer = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsPlayer);
 
-        for (int i = 0; i <= damageToPlayer.Length; i++)
+        for (int i = 0; i < damageToPlayer.Length; i++)
         {
             
             damageToPlayer[i].GetComponent<CharacterController2D>().TakeDamage(damage);
             animator.SetTrigger("Attack");
-
+            Debug.Log("do Melee Attack");
         }
 
     }

@@ -15,7 +15,7 @@ public class PlayerMovement : MonoBehaviour
    bool crouch = false;
    bool melee  = false;
    bool fire   = false;
-    public Animator animator; 
+   public Animator animator; 
 
 
 
@@ -26,9 +26,9 @@ public class PlayerMovement : MonoBehaviour
 
        if(Input.GetButtonDown("Jump")) // defined in the unity settings
        {
-         jump = true;
+          jump = true;
 
-         animator.SetBool("isJumping", true);
+         animator.SetTrigger("isJumping"); 
        }
 
        if(Input.GetButtonDown("Crouch")) // defined in the unity settings
@@ -43,23 +43,17 @@ public class PlayerMovement : MonoBehaviour
        if (Input.GetButtonDown("melee")) // defined in the unity settings
        {
           melee = true;
-       }
-       else if (Input.GetButtonUp("melee")) //defined in the unity settings - when you release the button it stops to melee
+        }
+        else if (Input.GetButtonUp("melee")) //defined in the unity settings - when you release the button it stops to melee
        {
           melee = false;
-       }
-       if (Input.GetButtonDown("Fire")) // defined in the unity settings
+        }
+        if (Input.GetButtonDown("Fire")) // defined in the unity settings
        {
           fire = true;
-
-          animator.SetTrigger("fire");
        }
     }
 
-    public void OnLanding() 
-    {
-        animator.SetBool("isJumping", false);
-    }
 
     void FixedUpdate() 
     {

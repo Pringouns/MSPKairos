@@ -14,9 +14,8 @@ GameObject:
   - component: {fileID: 4306273020856231896}
   - component: {fileID: 5815985734366949384}
   - component: {fileID: 3450633688713853453}
-  - component: {fileID: 2727823727869114297}
   - component: {fileID: 7947100707465625552}
-  - component: {fileID: 6994387628772393875}
+  - component: {fileID: 416712180224781117}
   m_Layer: 0
   m_Name: PH_Enemy_Fly
   m_TagString: Enemy
@@ -182,23 +181,6 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.39
---- !u!114 &2727823727869114297
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7518439633510123435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f05174db8b8d54d8ebdffd40f498b99a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startTimeBtwShots: 2
-  projectile: {fileID: 3957496530466009325, guid: 9c301304dce0c8b41a835989c1712a2a,
-    type: 3}
-  currentHealth: 100
-  maxHealth: 100
 --- !u!95 &7947100707465625552
 Animator:
   serializedVersion: 3
@@ -218,7 +200,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &6994387628772393875
+--- !u!114 &416712180224781117
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -227,7 +209,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 7518439633510123435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2291fdee43ef18b4897230ae174de660, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ebc110fc87f0f64aa0fb5c343044c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startTimeBtwShots: 2
+  projectile: {fileID: 3957496530466009325, guid: 9c301304dce0c8b41a835989c1712a2a,
+    type: 3}
+  currentHealth: 100
+  maxHealth: 100
   aiPath: {fileID: 4306273020856231896}

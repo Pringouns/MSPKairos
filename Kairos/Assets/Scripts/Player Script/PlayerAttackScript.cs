@@ -11,6 +11,7 @@ public class PlayerAttackScript : MonoBehaviour
    public BossScript ctrl_boss;
    public EnemyMelee ctrl_enemy;
    public ShootingEnemy ctrl_ShootingEnemy;
+   public FlierEnemy ctrl_flierEnemy;
    public Transform fireWeapon;
 
    //melee attack
@@ -21,7 +22,7 @@ public class PlayerAttackScript : MonoBehaviour
    public float startTimeBtwAttack = 0.3f;
 
    public GameObject fireAttackPrefab;
-
+   public Animator animator;
    SpriteRenderer spriteRenderer;
 
     // Start is called before the first frame update
@@ -31,6 +32,7 @@ public class PlayerAttackScript : MonoBehaviour
        ctrl_Player = FindObjectOfType<CharacterController2D>();
        ctrl_enemy = FindObjectOfType<EnemyMelee>();
        ctrl_ShootingEnemy = FindObjectOfType<ShootingEnemy>();
+       ctrl_flierEnemy = FindObjectOfType<FlierEnemy>();
        spriteRenderer = GetComponent<SpriteRenderer>();
     }
     void FixedUpdate()
@@ -46,7 +48,7 @@ public class PlayerAttackScript : MonoBehaviour
              if (ctrl_Player.getMelee())  // if user press melee button
              {
                 Attack();
-
+                animator.SetTrigger("isMelee");
              }
              timeBtwAttack = startTimeBtwAttack;
           }
@@ -78,7 +80,7 @@ public class PlayerAttackScript : MonoBehaviour
        for (int i = 0; i < damageToEnemies.Length; i++)
        {
           if (damageToEnemies[i].CompareTag("Boss"))
-         {
+          {
             damageToEnemies[i].GetComponent<BossScript>().TakeDamage(ctrl_Player.attackDamage);
           }
           if (damageToEnemies[i].CompareTag("Enemy"))
@@ -89,7 +91,11 @@ public class PlayerAttackScript : MonoBehaviour
           {
              damageToEnemies[i].GetComponent<ShootingEnemy>().TakeDamage(ctrl_Player.attackDamage);
           }
-       }
+          if (damageToEnemies[i].CompareTag("FlierEnemy"))
+          {
+             damageToEnemies[i].GetComponent<FlierEnemy>().TakeDamage(ctrl_Player.attackDamage);
+          }
+        }
     }
     void OnDrawGizmosSelected()  // Red attack range circle and scene view
     {
