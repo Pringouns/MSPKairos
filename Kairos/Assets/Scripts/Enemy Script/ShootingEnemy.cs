@@ -16,6 +16,7 @@ public class ShootingEnemy : MonoBehaviour
     [SerializeField] int maxHealth = 100;
     SpriteRenderer spriteRenderer;
     Transform player;
+    Animator animator;
     // Use this for initialization
     void Start()
     {
@@ -28,10 +29,7 @@ public class ShootingEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-         if (currentHealth <= 0)
-         {
-          die();
-         }
+         
          if (spriteRenderer.enabled)
          {
 
@@ -49,6 +47,7 @@ public class ShootingEnemy : MonoBehaviour
                 transform.localScale = new Vector2(1, 1);
             }
 
+            
 
             // for chasing the player
             if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
@@ -81,6 +80,10 @@ public class ShootingEnemy : MonoBehaviour
     public void TakeDamage(int damage)
     {
         currentHealth -= damage;
+        if (currentHealth <= 0)
+        {
+            die();
+        }
     }
 
     void die()
