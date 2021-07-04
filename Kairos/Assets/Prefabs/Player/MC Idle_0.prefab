@@ -159,7 +159,7 @@ MonoBehaviour:
   ctrl_ShootingEnemy: {fileID: 0}
   ctrl_flierEnemy: {fileID: 0}
   fireWeapon: {fileID: 4959912564085969015}
-  attackPosition: {fileID: 0}
+  attackPosition: {fileID: 4959912564085969015}
   whatIsEnemie:
     serializedVersion: 2
     m_Bits: 1024
@@ -178,7 +178,7 @@ Animator:
   m_GameObject: {fileID: 3104610392206049326}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2a07e284a5b439b4f8f22a4aa869cb65, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

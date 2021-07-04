@@ -17,7 +17,7 @@ GameObject:
   - component: {fileID: 7823294400530931223}
   m_Layer: 10
   m_Name: PH_Enemy_Range
-  m_TagString: EnemyDistance
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -151,14 +151,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f05174db8b8d54d8ebdffd40f498b99a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  moveSpeed: 0
+  maxHealth: 100
+  currentHealth: 100
   stoppingDistance: 2
   retreatDistance: 3
   startTimeBtwShots: 1
   projectile: {fileID: 6878134845839551781, guid: 894b9ed65adce4a68a74a84376489fff,
     type: 3}
-  currentHealth: 100
-  maxHealth: 100
 --- !u!95 &7823294400530931223
 Animator:
   serializedVersion: 3
