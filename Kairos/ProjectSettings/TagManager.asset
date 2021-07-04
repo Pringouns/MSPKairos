@@ -16,6 +16,7 @@ TagManager:
   - EnemyDistance
   - FlierEnemy
   - Boss
+  - Pathfinder
   layers:
   - Default
   - TransparentFX

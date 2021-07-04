@@ -133,6 +133,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6008307126687788998, guid: 9fed568b96a20784f918a22af1c17617,
         type: 3}
+      propertyPath: pathfinder
+      value: 
+      objectReference: {fileID: 8893927752915360254, guid: 4e24b78ceb69b8649b69519f9312d560,
+        type: 3}
+    - target: {fileID: 6008307126687788998, guid: 9fed568b96a20784f918a22af1c17617,
+        type: 3}
       propertyPath: mobSpawns.Array.size
       value: 1
       objectReference: {fileID: 0}
