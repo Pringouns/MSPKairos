@@ -6,6 +6,7 @@ public class RoomControl : MonoBehaviour
 {
     public GameObject[] doors;
     public GameObject[] mobSpawns;
+    public GameObject pathfinder;
     public List<GameObject> mobs;
 
     private CameraControl cam;
@@ -16,6 +17,7 @@ public class RoomControl : MonoBehaviour
     void Start()
     {
         cam = Camera.main.GetComponent<CameraControl>();
+        pathfinder = GameObject.FindGameObjectWithTag("Pathfinder");
     }
 
     void FixedUpdate()
@@ -43,6 +45,7 @@ public class RoomControl : MonoBehaviour
     public void onPlayerEnter()
     {
         cam.moveCamera(this.transform.position);
+        pathfinder.transform.position = this.transform.position;
 
         if(hasSpawned == false)
         {

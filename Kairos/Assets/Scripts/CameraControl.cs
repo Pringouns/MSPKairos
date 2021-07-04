@@ -32,4 +32,9 @@ public class CameraControl : MonoBehaviour
         }
     }
 
+    public void camToStart()
+    {
+        Vector3 zero = new Vector3(0, 0, -10);
+        moveCamera(zero);
+    }
 }
