@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3450633688713853453}
   - component: {fileID: 7947100707465625552}
   - component: {fileID: 368100336492861395}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: PH_Enemy_Fly
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -191,7 +191,7 @@ Animator:
   m_GameObject: {fileID: 7518439633510123435}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b0f55c6f1fc27494aaa75b20a7715da0, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -209,13 +209,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7518439633510123435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 700293047476d184ab7de9ad85de5c40, type: 3}
+  m_Script: {fileID: 11500000, guid: 5ebc110fc87f0f64aa0fb5c343044c22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 1
+  moveSpeed: 2
   maxHealth: 100
   currentHealth: 100
-  startTimeBtwShots: 3
+  startTimeBtwShots: 2
   projectile: {fileID: 3957496530466009325, guid: 9c301304dce0c8b41a835989c1712a2a,
     type: 3}
   aiPath: {fileID: 4306273020856231896}
