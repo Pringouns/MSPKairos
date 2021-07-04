@@ -6,23 +6,33 @@ public class RoomControl : MonoBehaviour
 {
     public GameObject[] doors;
     public GameObject[] mobSpawns;
+    public List<GameObject> mobs;
 
     private CameraControl cam;
 
-    private bool isCleared = false;
-    private bool hasSpawned = false;
+    public bool isCleared = false;
+    public bool hasSpawned = false;
 
-    private void Start()
+    void Start()
     {
         cam = Camera.main.GetComponent<CameraControl>();
     }
 
-    private void FixedUpdate()
+    void FixedUpdate()
     {
         if (hasSpawned == true && isCleared == false)
         {
-            GameObject[] mobs = GameObject.FindGameObjectsWithTag("Enemy");
-            if (mobs.Length == 0)
+            bool mobsAlive = false;
+            foreach(GameObject mob in mobs)
+            {
+                EnemyBase mobScript = mob.GetComponent<EnemyBase>();
+                if (mobScript.isAlive())
+                {
+                    mobsAlive = true;
+                }
+            }
+
+            if (!mobsAlive)
             {
                 isCleared = true;
                 activateDoors();
@@ -33,17 +43,17 @@ public class RoomControl : MonoBehaviour
     public void onPlayerEnter()
     {
         cam.moveCamera(this.transform.position);
-        activateDoors();
 
         if(hasSpawned == false)
         {
-            foreach(GameObject mobSpawn in mobSpawns)
+            activateDoors();
+            foreach (GameObject mobSpawn in mobSpawns)
             {
                 SpawnpointControl spawnController = mobSpawn.GetComponent<SpawnpointControl>();
-                spawnController.spawn();
+                mobs.Add(spawnController.spawn());
             }
 
-            hasSpawned = true;
+            this.hasSpawned = true;
         }
     }
 

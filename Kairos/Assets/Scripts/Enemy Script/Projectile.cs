@@ -15,6 +15,8 @@ public class Projectile : MonoBehaviour
     public int damage = 10;
     private float lastAttackTime;
     public float attackDelay;
+    public int flightTime = 4;
+    private float intTime;
 
 
 
@@ -25,13 +27,15 @@ public class Projectile : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").transform;
 
         target = new Vector2(player.position.x, player.position.y);
+
+        intTime = Time.time;
     }
    
     // Update is called once per frame
     void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target, speed * Time.deltaTime);
-        if (transform.position.x == target.x && transform.position.y == target.y)
+        if (Time.time > intTime + flightTime)
         {
             DestroyProjectile();
         }
@@ -71,13 +75,13 @@ public class Projectile : MonoBehaviour
         if (other.transform.tag == "Player")
         {
             other.GetComponent<CharacterController2D>().TakeDamage(damage);
-            Destroy(this.gameObject);
+            Object.Destroy(this.gameObject);
         }
        
     }
     void DestroyProjectile()
     {
-        Destroy(gameObject);
+        Object.Destroy(this.gameObject);
     }
 
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Pathfinding;
 
-public class FlierEnemy : MonoBehaviour
+public class FlierEnemy : EnemyBase
 {
 
     //.......This Script is for the flier Enemy.....//
@@ -13,24 +13,28 @@ public class FlierEnemy : MonoBehaviour
     private float timeBtwShots;
     public float startTimeBtwShots;
     public GameObject projectile;
-    [SerializeField] int currentHealth = 100;
-    [SerializeField] int maxHealth = 100;
-    SpriteRenderer spriteRenderer;
     public AIPath aiPath;
+    AIDestinationSetter aiSetter;
 
 
     // Use this for initialization
-    void Start()
+    override protected void onStart()
     {
-        currentHealth = maxHealth;
         timeBtwShots = startTimeBtwShots;
-        spriteRenderer = GetComponent<SpriteRenderer>();
+        aiSetter = GetComponent<AIDestinationSetter>();
+        aiSetter.target = player;
+    }
+
+    override protected void onDeath()
+    {
+        this.aiSetter.target = null;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (spriteRenderer.enabled)
+        checkHealth();
+        if (isAlive())
         {
             // for flip
 
@@ -56,19 +60,4 @@ public class FlierEnemy : MonoBehaviour
             }
         }
     }
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-
-        if (currentHealth <= 0)
-        {
-            die();
-        }
-    }
-
-    void die()
-    {
-        spriteRenderer.enabled = false;
-    }
-
 }

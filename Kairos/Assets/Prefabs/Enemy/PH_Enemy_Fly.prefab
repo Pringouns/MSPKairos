@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 5815985734366949384}
   - component: {fileID: 3450633688713853453}
   - component: {fileID: 7947100707465625552}
-  - component: {fileID: 416712180224781117}
+  - component: {fileID: 368100336492861395}
   m_Layer: 0
   m_Name: PH_Enemy_Fly
   m_TagString: Enemy
@@ -134,7 +134,7 @@ MonoBehaviour:
   canSearch: 1
   canMove: 1
   maxSpeed: 5
-  gravity: {x: NaN, y: NaN, z: NaN}
+  gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -164,7 +164,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  target: {fileID: 0}
+  target: {fileID: 5414632927551214058, guid: 65cb85e1026440441a15384965313324, type: 3}
 --- !u!58 &3450633688713853453
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -191,7 +191,7 @@ Animator:
   m_GameObject: {fileID: 7518439633510123435}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: b0f55c6f1fc27494aaa75b20a7715da0, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -200,7 +200,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!114 &416712180224781117
+--- !u!114 &368100336492861395
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -209,12 +209,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 7518439633510123435}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5ebc110fc87f0f64aa0fb5c343044c22, type: 3}
+  m_Script: {fileID: 11500000, guid: 700293047476d184ab7de9ad85de5c40, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startTimeBtwShots: 2
+  moveSpeed: 1
+  maxHealth: 100
+  currentHealth: 100
+  startTimeBtwShots: 3
   projectile: {fileID: 3957496530466009325, guid: 9c301304dce0c8b41a835989c1712a2a,
     type: 3}
-  currentHealth: 100
-  maxHealth: 100
   aiPath: {fileID: 4306273020856231896}

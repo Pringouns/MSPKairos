@@ -7,9 +7,9 @@ public class SpawnpointControl : MonoBehaviour
     public GameObject[] objects;
 
     // Start is called before the first frame update
-    public void spawn()
+    public GameObject spawn()
     {
         int rand = Random.Range(0, objects.Length);
-        Instantiate(objects[rand], transform.position, Quaternion.identity);
+        return Instantiate(objects[rand], transform.position, Quaternion.identity);
     }
 }
