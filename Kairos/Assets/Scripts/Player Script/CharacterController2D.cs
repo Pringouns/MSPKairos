@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class CharacterController2D : MonoBehaviour
 {
@@ -74,10 +75,15 @@ public class CharacterController2D : MonoBehaviour
         if (this.m_LifePoints <= 0)
         {
             SetPlayerDisabled();
-            PlayerRespawn();
+            //PlayerRespawn();
+            restartGame();
             // player state - death
         }
 
+    }
+
+    public void restartGame(){
+        SceneManager.LoadScene(2);
     }
 
 
@@ -248,6 +254,8 @@ public class CharacterController2D : MonoBehaviour
         m_LifePoints = m_maxLP;  // set LP up to 100
         SetPlayerEnabled();
     }
+
+
     public void Stop()
     {
         m_Rigidbody2D.velocity = Vector2.zero;
