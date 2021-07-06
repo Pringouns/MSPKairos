@@ -1,5 +1,35 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &3014720683502125423
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6622577684179295385}
+  m_Layer: 0
+  m_Name: MSP - Boss Room Middlelayar (Missing Prefab)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6622577684179295385
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3014720683502125423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2937276859024319532}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &3885625206774182256
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -69,75 +99,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a1db1090c38baa14e963dfe42d34087a, type: 3}
---- !u!1001 &6769008376365698127
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 2937276859024319532}
-    m_Modifications:
-    - target: {fileID: 3947716480724803386, guid: 40be7dde9f281cc43a09e4bfe92be5f9,
-        type: 3}
-      propertyPath: m_Name
-      value: MSP - Boss Room Middlelayar
-      objectReference: {fileID: 0}
-    - target: {fileID: 6929076122466738821, guid: 40be7dde9f281cc43a09e4bfe92be5f9,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 9
-      objectReference: {fileID: 0}
-    - target: {fileID: 6929076122466738821, guid: 40be7dde9f281cc43a09e4bfe92be5f9,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0.037
-      objectReference: {fileID: 0}
-    - target: {fileID: 6929076122466738821, guid: 40be7dde9f281cc43a09e4bfe92be5f9,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.004
-      objectReference: {fileID: 0}
-    - target: {fileID: 6929076122466738821, guid: 40be7dde9f281cc43a09e4bfe92be5f9,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6929076122466738821, guid: 40be7dde9f281cc43a09e4bfe92be5f9,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6929076122466738821, guid: 40be7dde9f281cc43a09e4bfe92be5f9,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6929076122466738821, guid: 40be7dde9f281cc43a09e4bfe92be5f9,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6929076122466738821, guid: 40be7dde9f281cc43a09e4bfe92be5f9,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: -0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6929076122466738821, guid: 40be7dde9f281cc43a09e4bfe92be5f9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6929076122466738821, guid: 40be7dde9f281cc43a09e4bfe92be5f9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6929076122466738821, guid: 40be7dde9f281cc43a09e4bfe92be5f9,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 40be7dde9f281cc43a09e4bfe92be5f9, type: 3}
 --- !u!1001 &7817690631164409468
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -145,6 +106,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: -304806475619298883, guid: b51239671f3047949a55104b9fa83bf9,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 3143354354396938688, guid: b51239671f3047949a55104b9fa83bf9,
         type: 3}
       propertyPath: m_Name
@@ -210,10 +176,15 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 6551059603555574961, guid: b51239671f3047949a55104b9fa83bf9,
+        type: 3}
+      propertyPath: isBossRoom
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8259167104166026624, guid: b51239671f3047949a55104b9fa83bf9,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b51239671f3047949a55104b9fa83bf9, type: 3}
