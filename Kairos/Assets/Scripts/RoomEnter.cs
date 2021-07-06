@@ -15,7 +15,7 @@ public class RoomEnter : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D trigger)
     {
-        if (trigger.CompareTag("Player") && trigger.GetType() == typeof(UnityEngine.BoxCollider2D))
+        if (trigger.CompareTag("Player") && trigger.GetType() == typeof(UnityEngine.EdgeCollider2D))
         {
             CharacterController2D playerControl = trigger.GetComponent<CharacterController2D>();
             playerControl.Stop();

@@ -12,6 +12,7 @@ public class RoomControl : MonoBehaviour
 
     public bool isCleared = false;
     public bool hasSpawned = false;
+    public bool isBossRoom = false;
 
     void Start()
     {
@@ -43,6 +44,10 @@ public class RoomControl : MonoBehaviour
     public void onPlayerEnter()
     {
         cam.moveCamera(this.transform.position);
+        if (isBossRoom)
+        {
+            onEnterBossRoom();
+        }
 
         if (hasSpawned == false)
         {
@@ -64,5 +69,10 @@ public class RoomControl : MonoBehaviour
             DoorControl doorController = door.GetComponent<DoorControl>();
             doorController.activateDoor();
         }
+    }
+
+    private void onEnterBossRoom()
+    {
+        
     }
 }
