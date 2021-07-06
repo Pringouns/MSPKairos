@@ -115,7 +115,7 @@ MonoBehaviour:
   speed: 10
   damage: 20
   flightTime: 3
-  noClip: 1
+  noClip: 0
 --- !u!50 &692124785472801697
 Rigidbody2D:
   serializedVersion: 4
