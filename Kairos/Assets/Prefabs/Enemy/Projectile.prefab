@@ -113,10 +113,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  attackRange: 0.5
   damage: 20
-  attackDelay: 0
   flightTime: 3
+  noClip: 1
 --- !u!50 &692124785472801697
 Rigidbody2D:
   serializedVersion: 4
