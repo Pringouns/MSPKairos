@@ -154,6 +154,10 @@ MonoBehaviour:
   moveSpeed: 0
   maxHealth: 100
   currentHealth: 100
+  dropItems:
+  - {fileID: 7474743521699663483, guid: 4a05b48a23125f140b623989f8840e7b, type: 3}
+  - {fileID: 3705464175998965517, guid: 0202c83bc878cf34b8a4851b4dccd228, type: 3}
+  dropChance: 0.7
   stoppingDistance: 2
   retreatDistance: 3
   startTimeBtwShots: 1

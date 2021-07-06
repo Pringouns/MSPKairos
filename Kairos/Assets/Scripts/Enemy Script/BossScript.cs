@@ -182,10 +182,12 @@ public class BossScript : EnemyBase
             if (damageToPlayer[i].GetType() == typeof(UnityEngine.EdgeCollider2D)){
                 damageToPlayer[i].GetComponent<CharacterController2D>().TakeDamage(damage);
                 animator.SetTrigger("Attack");
-                Debug.Log("do Melee Attack");
             }
         }
-
     }
 
+    protected override void onDeath()
+    {
+
+    }
 }
