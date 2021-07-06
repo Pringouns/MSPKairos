@@ -91,11 +91,11 @@ public class EnemyMelee : EnemyBase
 
         for (int i = 0; i < damageToPlayer.Length; i++)
         {
-
-            damageToPlayer[i].GetComponent<CharacterController2D>().TakeDamage(damage);
-            Debug.Log("attacking melee");
-
-
+            CharacterController2D pControl = damageToPlayer[i].GetComponent<CharacterController2D>();
+            if(pControl != null)
+            {
+                pControl.TakeDamage(damage);
+            }
         }
 
     }
