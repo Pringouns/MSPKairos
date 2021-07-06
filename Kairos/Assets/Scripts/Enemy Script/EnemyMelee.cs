@@ -62,20 +62,20 @@ public class EnemyMelee : EnemyBase
         if (transform.position.x < player.position.x)
         {
             //enemy is to the left side of the player, so move right
-            rb2d.velocity = new Vector2(moveSpeed, 0);
+            rb2d.velocity = new Vector2(moveSpeed, rb2d.velocity.y);
             transform.localScale = new Vector2(-1, 1);
         }
         else if (transform.position.x > player.position.x)
         {
             //enemy is to the right side of the player, so move left
-            rb2d.velocity = new Vector2(-moveSpeed, 0);
+            rb2d.velocity = new Vector2(-moveSpeed, rb2d.velocity.y);
             transform.localScale = new Vector2(1, 1);
         }
     }
 
     private void StopChasingPlayer()
     {
-        rb2d.velocity = Vector2.zero;
+        rb2d.velocity = new Vector2(0f, rb2d.velocity.y);
     }
 
     void OnTriggerEnter2D(Collider2D Col)

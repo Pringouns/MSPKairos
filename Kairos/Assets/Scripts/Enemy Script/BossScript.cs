@@ -2,17 +2,12 @@
 using System.Collections;
 using System;
 
-public class BossScript : MonoBehaviour
+public class BossScript : EnemyBase
 {
-    //[SerializeField]
-    Transform player;
 
-    
+    protected GameObject playerObj;
     public float aggroRange;
 
-    Rigidbody2D rb2d;
-    public int maxHealth = 100;
-    public int currentHealth;
     public float attackRange;
     public int damage;
     private float lastAttackTime;
@@ -20,53 +15,44 @@ public class BossScript : MonoBehaviour
     private float timeBtwShots;
     public float startTimeBtwShots;
     public GameObject bossProjectile;
-    public float speed;
     public float stoppingDistance;
     public float retreatDistance;
     public LayerMask whatIsPlayer;
     Vector2 Direction;
     public Animator animator;
 
-    SpriteRenderer m_ObjectRenderer; // to invisible the object
 
     // Start is called before the first frame update
-    void Start()
+    override protected void onStart()
     {
-        currentHealth = maxHealth;
-        rb2d = GetComponent<Rigidbody2D>();
-        player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBtwShots = startTimeBtwShots;
-
-        m_ObjectRenderer = GetComponent<SpriteRenderer>(); // to invisible the object 
-
+        playerObj = GameObject.FindGameObjectWithTag("Player");
     }
     // Update is called once per frame
     void Update()
     {
-       if (m_ObjectRenderer.enabled)
+       if (isAlive())
        {
 
-
-
         //Distance to player
-        float distToPlayer = Vector2.Distance(transform.position, player.position);
+        float distToPlayer = Vector2.Distance(this.transform.position, player.position);
 
-        Vector2 targetPos = player.transform.position;
+        Vector2 targetPos = player.position;
 
-        Direction = targetPos - (Vector2)transform.position;
+        Direction = targetPos - (Vector2)this.transform.position;
 
-        RaycastHit2D rayInfo = Physics2D.Raycast(transform.position, Direction, aggroRange);
+        RaycastHit2D rayInfo = Physics2D.Raycast(this.transform.position, Direction, aggroRange);
 
 
 
             // flip
-            if (transform.position.x < player.position.x)
+            if (this.transform.position.x < player.position.x)
             {
                 //enemy is to the left side of the player, so move right
 
                 transform.localScale = new Vector2(-1, 1);
             }
-            else if (transform.position.x > player.position.x)
+            else if (this.transform.position.x > player.position.x)
             {
                 //enemy is to the right side of the player, so move left
 
@@ -93,19 +79,19 @@ public class BossScript : MonoBehaviour
 
             }
               
-            else if (distToPlayer > aggroRange && player.position.y > -7 && player.position.x < 17) // this one was just to test if the Boss would stop chasing and shooting the player when the player is out of the room
+            else if (distToPlayer > aggroRange) // this one was just to test if the Boss would stop chasing and shooting the player when the player is out of the room
             {
                  //Stop chasing player
                  StopChasingPlayer();
 
-                float distanceToPlayer = Vector3.Distance(transform.position, player.position);
+                float distanceToPlayer = Vector3.Distance(this.transform.position, player.position);
 
                 if (distanceToPlayer < attackRange)                                           
                 {
                     //Check to see if enough time passed after the last attack
                     if (Time.time > lastAttackTime + attackDelay)
                     {
-                        player.SendMessage("TakeDamage", damage);
+                        playerObj.SendMessage("TakeDamage", damage);
                         //Record the Time we attacked
                         lastAttackTime = Time.time;
                     }
@@ -122,26 +108,26 @@ public class BossScript : MonoBehaviour
     private void startShootingPlayer()
     {
 
-        if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+        if (Vector2.Distance(this.transform.position, player.position) > stoppingDistance)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            this.transform.position = Vector2.MoveTowards(this.transform.position, player.position, moveSpeed * Time.deltaTime);
         }
-        else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
+        else if (Vector2.Distance(this.transform.position, player.position) < stoppingDistance && Vector2.Distance(this.transform.position, player.position) > retreatDistance)
         {
-            transform.position = this.transform.position;
+            this.transform.position = this.transform.position;
         }
-        else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
+        else if (Vector2.Distance(this.transform.position, player.position) < retreatDistance)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+            this.transform.position = Vector2.MoveTowards(this.transform.position, player.position, -moveSpeed * Time.deltaTime);
         }
-       else  if (Vector2.Distance(transform.position, player.position) < attackRange)
+       else  if (Vector2.Distance(this.transform.position, player.position) < attackRange)
         {
             StopChasingPlayer();
         }
 
         if (timeBtwShots <= 0)
         {
-            Instantiate(bossProjectile, transform.position, Quaternion.identity);
+            Instantiate(bossProjectile, this.transform.position, Quaternion.identity);
             timeBtwShots = startTimeBtwShots;
         }
         else
@@ -153,16 +139,16 @@ public class BossScript : MonoBehaviour
 
     void ChasePlayer()
     {
-        if (transform.position.x < player.position.x && transform.position.x > 0.1)
+        if (transform.position.x < player.position.x)
         {
             //enemy is to the left side of the player, so move right
-            rb2d.velocity = new Vector2(speed, 0);
+            rb2d.velocity = new Vector2(moveSpeed, 0);
             transform.localScale = new Vector2(-1, 1);
         }
-        else if (transform.position.x > player.position.x && transform.position.x < 0.1)
+        else if (transform.position.x > player.position.x)
         {
             //enemy is to the right side of the player, so move left
-            rb2d.velocity = new Vector2(-speed, 0);
+            rb2d.velocity = new Vector2(-moveSpeed, 0);
             transform.localScale = new Vector2(1, 1);
         }
     }
@@ -175,22 +161,6 @@ public class BossScript : MonoBehaviour
 
     }
 
-    public void TakeDamage(int damage)
-    {
-        currentHealth -= damage;
-
-        if (currentHealth <= 0)
-        {
-            die();
-        }
-    }
-
-    void die()
-    {
-        m_ObjectRenderer.enabled = false; // to invisible the object 
-
-        Debug.Log("Enemy died!");
-    }
     public void GetDamage(int damage) // Remove Damage from actual LifePoints
     {
         currentHealth -= damage;
@@ -205,14 +175,15 @@ public class BossScript : MonoBehaviour
     void Attack()
     {
         //attack enemys in range
-        Collider2D[] damageToPlayer = Physics2D.OverlapCircleAll(transform.position, attackRange, whatIsPlayer);
+        Collider2D[] damageToPlayer = Physics2D.OverlapCircleAll(this.transform.position, attackRange, whatIsPlayer);
 
         for (int i = 0; i < damageToPlayer.Length; i++)
         {
-            
-            damageToPlayer[i].GetComponent<CharacterController2D>().TakeDamage(damage);
-            animator.SetTrigger("Attack");
-            Debug.Log("do Melee Attack");
+            if (damageToPlayer[i].GetType() == typeof(UnityEngine.EdgeCollider2D)){
+                damageToPlayer[i].GetComponent<CharacterController2D>().TakeDamage(damage);
+                animator.SetTrigger("Attack");
+                Debug.Log("do Melee Attack");
+            }
         }
 
     }

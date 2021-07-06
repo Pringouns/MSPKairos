@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 345633474412136222}
   - component: {fileID: 1069697215568412216}
-  m_Layer: 11
+  m_Layer: 13
   m_Name: Platform 3x1
   m_TagString: Platform
   m_Icon: {fileID: 0}
@@ -130,7 +130,7 @@ PrefabInstance:
     - target: {fileID: 4106629330519343346, guid: fcacea28ef2eb92409652f9251404dd7,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fcacea28ef2eb92409652f9251404dd7, type: 3}
@@ -210,7 +210,7 @@ PrefabInstance:
     - target: {fileID: 8000023921585741203, guid: fe0ab51029515fe44ad4ccad4be057b7,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fe0ab51029515fe44ad4ccad4be057b7, type: 3}
@@ -235,7 +235,7 @@ PrefabInstance:
     - target: {fileID: 8852221832527542636, guid: 23117f72c5cdd6b43bb3f460baab56d3,
         type: 3}
       propertyPath: m_Layer
-      value: 11
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 8852221832527542638, guid: 23117f72c5cdd6b43bb3f460baab56d3,
         type: 3}
