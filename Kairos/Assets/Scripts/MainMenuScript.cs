@@ -9,6 +9,7 @@ public class MainMenuScript : MonoBehaviour
 {
     public void playGame() { 
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex +1);
+        Time.timeScale = 1f;
     }
 
     public void quitGame() {

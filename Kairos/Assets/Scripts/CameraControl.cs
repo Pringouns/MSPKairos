@@ -28,7 +28,7 @@ public class CameraControl : MonoBehaviour
     void Update(){
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
          if(sceneIndex != 0){
-            unpause();
+           // unpause();
         }
     }
 
