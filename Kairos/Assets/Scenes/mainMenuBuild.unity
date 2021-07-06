@@ -236,7 +236,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c6e8c556f8eccb4a93761802d81811e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioMixer: {fileID: 24100000, guid: ab01238f892715244bad430195ae4cc6, type: 2}
+  testMixer: {fileID: 24100000, guid: 0a93d5496c6e67c42a09ad64493cefe6, type: 2}
 --- !u!225 &25376228
 CanvasGroup:
   m_ObjectHideFlags: 0
