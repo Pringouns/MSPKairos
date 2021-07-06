@@ -22,13 +22,13 @@ public class CameraControl : MonoBehaviour
     }
 
     void Start(){
-        pause();
+       // pause();
     }
 
     void Update(){
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-         if(sceneIndex != 0){
-           // unpause();
+         if(sceneIndex == 0 ){
+           //pause();
         }
     }
 
