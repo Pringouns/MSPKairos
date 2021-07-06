@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 274236853528234544}
   - component: {fileID: 6641844816203576634}
   - component: {fileID: 746101145767864306}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: PlayerAttack
   m_TagString: PlayerMeleeAttack
   m_Icon: {fileID: 0}

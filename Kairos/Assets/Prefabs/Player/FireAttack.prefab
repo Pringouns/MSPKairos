@@ -27,13 +27,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7907738475847751137}
-  m_LocalRotation: {x: 0, y: 0, z: 1, w: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -2.6092, y: -3.4034, z: 0}
   m_LocalScale: {x: 0.7065307, y: 0.89996547, z: 2}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 180}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6817300559285050258
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -143,10 +143,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9d6874a88700f6f42ae6d86ef2f40f93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ctrl_Player: {fileID: 0}
-  ctrl_enemy: {fileID: 0}
-  ctrl_ShootingEnemy: {fileID: 0}
-  ctrl_bossEnemy: {fileID: 0}
   timeToDestory: 0.5
   speed: 20
-  rb: {fileID: -3631189616415003053}
+  damage: 100
