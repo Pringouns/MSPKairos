@@ -20,7 +20,7 @@ public class EnemyMelee : EnemyBase
     {
         checkHealth();
 
-        if (isAlive())
+        if (isAlive() && Time.time > downTime + spawnTime)
         {
             //Distance to player
             float distToPlayer = Vector2.Distance(transform.position, player.position);

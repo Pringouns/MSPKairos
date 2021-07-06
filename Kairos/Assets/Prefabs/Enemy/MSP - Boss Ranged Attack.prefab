@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 6451523351388912477}
   - component: {fileID: 6650794787606958886}
   - component: {fileID: 4946461962414743546}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: MSP - Boss Ranged Attack
   m_TagString: Untagged
   m_Icon: {fileID: 0}

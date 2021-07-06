@@ -34,7 +34,7 @@ public class FlierEnemy : EnemyBase
     void Update()
     {
         checkHealth();
-        if (isAlive())
+        if (isAlive() && Time.time > downTime + spawnTime)
         {
             // for flip
 

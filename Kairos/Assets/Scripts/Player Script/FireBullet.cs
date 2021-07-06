@@ -23,7 +23,7 @@ public class FireBullet : MonoBehaviour
     void OnTriggerEnter2D(Collider2D Col)
     {
         Debug.Log(Col.gameObject.layer);
-        if (Col.gameObject.layer != 8)
+        if (Col.gameObject.layer != 8 && Col.gameObject.layer != 1)
         {
             EnemyBase eb = Col.GetComponent<EnemyBase>();
             if (eb != null)

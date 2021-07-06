@@ -16,7 +16,7 @@ public class ShootingEnemy : EnemyBase
     void Update()
     {
         checkHealth();
-         if (isAlive())
+         if (isAlive() && Time.time > downTime + spawnTime)
          {
 
             // for flip
@@ -32,22 +32,6 @@ public class ShootingEnemy : EnemyBase
 
                 transform.localScale = new Vector2(1, 1);
             }
-
-
-            // for chasing the player
-            if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
-            }
-            else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
-            {
-                transform.position = this.transform.position;
-            }
-            else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
-            {
-                transform.position = Vector2.MoveTowards(transform.position, player.position, -moveSpeed * Time.deltaTime);
-            }
-
 
             // to manage the time of shooting 
 

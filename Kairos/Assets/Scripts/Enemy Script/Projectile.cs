@@ -66,7 +66,7 @@ public class Projectile : MonoBehaviour
             DestroyProjectile();
         }
 
-        if (!noClip && groundLayers.Contains(other.gameObject.layer))
+        if ((!noClip && groundLayers.Contains(other.gameObject.layer)) || other.gameObject.layer == 14)
         {
             DestroyProjectile();
         }
