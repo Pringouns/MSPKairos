@@ -38,6 +38,7 @@ public class Projectile : MonoBehaviour
         float yVecPart = yDist / tDist;
 
         rb2d.velocity = new Vector2(speed * xVecPart, speed * yVecPart);
+        this.transform.Rotate(0, 0, Mathf.Atan2(yDist, xDist) * Mathf.Rad2Deg);
 
         intTime = Time.time;
     }
@@ -68,19 +69,6 @@ public class Projectile : MonoBehaviour
         }
 
 
-        // flip
-        if (transform.position.x < player.position.x)
-        {
-            //enemy is to the left side of the player, so move right
-
-            transform.localScale = new Vector2(-1, 1);
-        }
-        else if (transform.position.x > player.position.x)
-        {
-            //enemy is to the right side of the player, so move left
-
-            transform.localScale = new Vector2(1, 1);
-        }
     }
     void OnTriggerEnter2D(Collider2D other)
     {

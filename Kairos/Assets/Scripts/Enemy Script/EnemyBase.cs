@@ -18,6 +18,9 @@ public abstract class EnemyBase : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
 
+    public GameObject[] dropItems;
+    public float dropChance = 0.3f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -101,6 +104,7 @@ public abstract class EnemyBase : MonoBehaviour
                 Destroy(b);
         }
         onDeath();
+        dropItem();
     }
 
     public void TakeDamage(int damage)
@@ -108,6 +112,16 @@ public abstract class EnemyBase : MonoBehaviour
         currentHealth -= damage;
 
         checkHealth();
+    }
+
+    protected void dropItem()
+    {
+        float randF = Random.Range(0, 100) / 100f;
+        if (randF <= dropChance && dropItems.Length > 0)
+        {
+            int rand = Random.Range(0, dropItems.Length);
+            Instantiate(dropItems[rand], transform.position, Quaternion.identity);
+        }
     }
 }
 
