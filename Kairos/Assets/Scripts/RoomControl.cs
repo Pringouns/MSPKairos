@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class RoomControl : MonoBehaviour
 {
+
+    public AudioClip bgm;
+
     public GameObject[] doors;
     public GameObject[] mobSpawns;
     public List<GameObject> mobs;
@@ -73,6 +76,10 @@ public class RoomControl : MonoBehaviour
 
     private void onEnterBossRoom()
     {
-        
+        if(bgm != null){
+            AudioSource audio = GetComponent<AudioSource>();
+            audio.clip = bgm;
+            audio.Play();
+        }else Debug.Log("failed");
     }
 }
