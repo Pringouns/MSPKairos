@@ -54,6 +54,9 @@ public class CharacterController2D : MonoBehaviour
     public float attackRate = 2f;
     public float nextAttackTime = 0f;
 
+    private float lastHitTime;
+    public int inviTime = 1;
+
 
     [Header("Events")]
     [Space]
@@ -246,6 +249,10 @@ public class CharacterController2D : MonoBehaviour
     {
         return this.m_LifePoints;       // actual lifepoints
     }
+    public int GetMaxLifePoints() // return the actual LifePoints of the Player
+    {
+        return this.m_maxLP;       // actual lifepoints
+    }
     public void PlayerRespawn() // Teleport the Player to Spawn Point and Reset the LifePoints
     {
         CameraControl cam = Camera.main.GetComponent<CameraControl>();
@@ -263,15 +270,19 @@ public class CharacterController2D : MonoBehaviour
 
     public void TakeDamage(int damage)
     {
-        int actualDamage = 0;   // actual damage set to 0
-        actualDamage = ShieldProtection(damage); // actual damage after shield protection
-        if (m_shieldPoints == 0)
+        if (Time.time > lastHitTime + inviTime)
         {
-            m_LifePoints -= actualDamage;
-        }
-        else
-        {
-            Debug.Log("Sucessfull Dodge");
+            lastHitTime = Time.time;
+            int actualDamage = 0;   // actual damage set to 0
+            actualDamage = ShieldProtection(damage); // actual damage after shield protection
+            if (m_shieldPoints == 0)
+            {
+                m_LifePoints -= actualDamage;
+            }
+            else
+            {
+                Debug.Log("Sucessfull Dodge");
+            }
         }
     }
     public void MeleeAttack(bool melee) // Player Meele("c")
@@ -304,4 +315,5 @@ public class CharacterController2D : MonoBehaviour
         playerEnabled = true;
         spriteRenderer.enabled = true; // "disabled mode"
     }
+
 }

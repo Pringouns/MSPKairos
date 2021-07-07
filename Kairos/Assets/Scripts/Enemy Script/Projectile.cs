@@ -8,17 +8,16 @@ public class Projectile : MonoBehaviour
     private Transform player;
     private Vector2 target;
     private Vector2 start;
-    private Rigidbody2D rb2d;
+    private Rigidbody2D rb2d; 
+    ArrayList groundLayers = new ArrayList();
 
 
     private CharacterController2D characterController2D;
 
-    public float attackRange = 0.5f;
     public int damage = 10;
-    private float lastAttackTime;
-    public float attackDelay;
     public int flightTime = 4;
     private float intTime;
+    public bool noClip = false;
 
 
 
@@ -41,6 +40,11 @@ public class Projectile : MonoBehaviour
         this.transform.Rotate(0, 0, Mathf.Atan2(yDist, xDist) * Mathf.Rad2Deg);
 
         intTime = Time.time;
+
+        groundLayers = new ArrayList();
+        groundLayers.Add(0);  //Default
+        groundLayers.Add(11); //Floor
+        groundLayers.Add(13); //Platform
     }
    
     // Update is called once per frame
@@ -53,31 +57,19 @@ public class Projectile : MonoBehaviour
         }
         //Attacking AI
 
-        //Check the distance between Enemy and player
-        float distanceToPlayer = Vector3.Distance(transform.position, player.position);
-        if (distanceToPlayer < attackRange)
-        {
-            //Check to see if enough time passed after the last attack
-            if (Time.time > lastAttackTime + attackDelay)
-            {
-                player.SendMessage("TakeDamage", damage);
-                DestroyProjectile();
-
-                //Record the Time we attacked
-                lastAttackTime = Time.time;
-            }
-        }
-
-
     }
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.transform.tag == "Player")
         {
             other.GetComponent<CharacterController2D>().TakeDamage(damage);
-            Object.Destroy(this.gameObject);
+            DestroyProjectile();
         }
-       
+
+        if ((!noClip && groundLayers.Contains(other.gameObject.layer)) || other.gameObject.layer == 14)
+        {
+            DestroyProjectile();
+        }
     }
     void DestroyProjectile()
     {

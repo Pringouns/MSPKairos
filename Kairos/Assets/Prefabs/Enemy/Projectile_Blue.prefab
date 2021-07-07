@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: -2273329526506528659}
   - component: {fileID: 489443959852833444}
   - component: {fileID: -7579393049815695979}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: Projectile_Blue
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,9 +97,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.09190781, y: 0}
   serializedVersion: 2
-  m_Radius: 1.11
+  m_Radius: 0.53263825
 --- !u!114 &489443959852833444
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -113,9 +113,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 7
-  attackRange: 0.1
   damage: 30
-  attackDelay: 1
+  flightTime: 4
+  noClip: 0
 --- !u!50 &-7579393049815695979
 Rigidbody2D:
   serializedVersion: 4

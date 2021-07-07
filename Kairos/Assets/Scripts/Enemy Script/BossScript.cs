@@ -31,7 +31,7 @@ public class BossScript : EnemyBase
     // Update is called once per frame
     void Update()
     {
-       if (isAlive())
+       if (isAlive() && Time.time > downTime + spawnTime)
        {
 
         //Distance to player

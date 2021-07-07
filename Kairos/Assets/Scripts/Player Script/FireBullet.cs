@@ -4,67 +4,33 @@ using UnityEngine;
 
 public class FireBullet : MonoBehaviour
 {
-   //--------------------
-   // this script is just for the bullet of the player fire weapon!!
-   //--------------------
-   //---ctrl variables--- 
-   public CharacterController2D ctrl_Player;
-    public EnemyMelee ctrl_enemy; // zum testen wegen dmg
-    public ShootingEnemy ctrl_ShootingEnemy;
-    public BossScript ctrl_bossEnemy;
-    public FlierEnemy ctrl_flierEnemy;
-    //--------------------
     public float timeToDestory = 0.5f;
     public float speed = 20f;
-    public Rigidbody2D rb;
+    public int damage = 100;
+    Rigidbody2D rb2d;
 
     // Start is called before the first frame update
     void Start()
     {
         //Assignment of the control variables
-        ctrl_enemy = FindObjectOfType<EnemyMelee>();
-        ctrl_ShootingEnemy = FindObjectOfType<ShootingEnemy>();
-        ctrl_Player = FindObjectOfType<CharacterController2D>();
-        ctrl_bossEnemy = FindObjectOfType<BossScript>();
-        ctrl_flierEnemy = FindObjectOfType<FlierEnemy>();
+        rb2d = GetComponent<Rigidbody2D>();
 
-        rb.velocity = transform.right * speed;
+        rb2d.velocity = transform.right * speed;
+        this.transform.localScale = new Vector2(-1, 1);
         Destroy(this.gameObject, timeToDestory); // destroy after shooting in 1 second
     }
 
     void OnTriggerEnter2D(Collider2D Col)
     {
-        if (Col.CompareTag("Enemy"))
+        Debug.Log(Col.gameObject.layer);
+        if (Col.gameObject.layer != 8 && Col.gameObject.layer != 1)
         {
-            ctrl_enemy.TakeDamage(ctrl_Player.bulletDmg);
-            Destroy(this.gameObject);
-            Debug.Log("Komm mir nicht zu nahe!");
-        }
-        if (Col.CompareTag("EnemyDistance"))
-        {
-            ctrl_ShootingEnemy.TakeDamage(ctrl_Player.bulletDmg);
-            Destroy(this.gameObject);
-            Debug.Log("Camper!");
-        }
-        if (Col.CompareTag("FlierEnemy"))
-        {
-            ctrl_flierEnemy.TakeDamage(ctrl_Player.bulletDmg);
-            Destroy(this.gameObject);
-
-        }
-        if (Col.CompareTag("Boss"))
-        {
-            if (ctrl_bossEnemy != null) // for the purpose of not getting the NullReferenceExeption
+            EnemyBase eb = Col.GetComponent<EnemyBase>();
+            if (eb != null)
             {
-                ctrl_bossEnemy.TakeDamage(ctrl_Player.bulletDmg);
+                eb.TakeDamage(damage);
             }
-                
             Destroy(this.gameObject);
-            
-        }
-        else
-        {
-            Debug.Log("Daneben!");
         }
     }
 }

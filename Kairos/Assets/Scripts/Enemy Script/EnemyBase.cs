@@ -18,12 +18,16 @@ public abstract class EnemyBase : MonoBehaviour
     public int maxHealth;
     public int currentHealth;
 
+    protected float spawnTime;
+    public int downTime = 1;
+
     public GameObject[] dropItems;
     public float dropChance = 0.3f;
 
     // Start is called before the first frame update
     void Start()
     {
+        spawnTime = Time.time;
         currentHealth = maxHealth;
         rb2d = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
