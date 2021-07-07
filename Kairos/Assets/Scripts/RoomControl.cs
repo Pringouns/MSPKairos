@@ -77,7 +77,7 @@ public class RoomControl : MonoBehaviour
     private void onEnterBossRoom()
     {
         if(bgm != null){
-            AudioSource audio = GetComponent<AudioSource>();
+            AudioSource audio = Camera.main.GetComponent<AudioSource>();
             audio.clip = bgm;
             audio.Play();
         }else Debug.Log("failed");

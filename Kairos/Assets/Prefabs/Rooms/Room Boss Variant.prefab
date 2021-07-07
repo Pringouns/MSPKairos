@@ -328,6 +328,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6551059603555574961, guid: b51239671f3047949a55104b9fa83bf9,
         type: 3}
+      propertyPath: bgm
+      value: 
+      objectReference: {fileID: 8300000, guid: 800d1f46a5846a64f863d8479dc96cda, type: 3}
+    - target: {fileID: 6551059603555574961, guid: b51239671f3047949a55104b9fa83bf9,
+        type: 3}
       propertyPath: isBossRoom
       value: 1
       objectReference: {fileID: 0}

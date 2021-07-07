@@ -9,7 +9,8 @@ public class shieldscript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-       ctrl_Player = FindObjectOfType<CharacterController2D>();
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        ctrl_Player = player.GetComponent<CharacterController2D>();
     }
 
     // Update is called once per frame

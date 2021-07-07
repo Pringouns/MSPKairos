@@ -8,8 +8,9 @@ public class heart_script : MonoBehaviour
    [SerializeField] private int m_AddLifePoints = 50;
    void Start() 
    {
-      ctrl_Player = FindObjectOfType<CharacterController2D>();
-   }
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        ctrl_Player = player.GetComponent<CharacterController2D>();
+    }
    void OnTriggerEnter2D(Collider2D col) 
    {
       if (col.CompareTag("Player"))
