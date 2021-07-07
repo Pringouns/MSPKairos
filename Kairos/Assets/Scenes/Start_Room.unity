@@ -390,6 +390,11 @@ PrefabInstance:
       propertyPath: m_LifePoints
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 6663403893589057864, guid: 65cb85e1026440441a15384965313324,
+        type: 3}
+      propertyPath: m_MeleeDamage
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 65cb85e1026440441a15384965313324, type: 3}
 --- !u!1001 &745817003
@@ -598,6 +603,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457128583701676288, guid: 5cc4f05dc23f73b41a1eccb092417afd,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -585.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457128583701676288, guid: 5cc4f05dc23f73b41a1eccb092417afd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 147.04999
+      objectReference: {fileID: 0}
+    - target: {fileID: 5457128583701676288, guid: 5cc4f05dc23f73b41a1eccb092417afd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 36.972992
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5cc4f05dc23f73b41a1eccb092417afd, type: 3}

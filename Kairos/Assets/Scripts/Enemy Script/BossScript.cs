@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using System;
+using UnityEngine.SceneManagement;
 
 public class BossScript : EnemyBase
 {
@@ -102,6 +103,11 @@ public class BossScript : EnemyBase
 
             }
        }
+
+        if(currentHealth == 0){
+            onDeath();
+        }
+
     }
     
 
@@ -188,6 +194,6 @@ public class BossScript : EnemyBase
 
     protected override void onDeath()
     {
-
+        SceneManager.LoadScene(3);
     }
 }

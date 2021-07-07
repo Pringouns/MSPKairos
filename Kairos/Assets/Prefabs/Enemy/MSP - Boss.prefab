@@ -101,8 +101,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 1
-  maxHealth: 1000
+  maxHealth: 500
   currentHealth: 0
+  downTime: 1
+  dropItems: []
+  dropChance: 0.3
   aggroRange: 6
   attackRange: 2.5
   damage: 20
